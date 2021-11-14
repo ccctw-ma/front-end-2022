@@ -1,0 +1,19 @@
+{
+  "name": "front-end-learning-project",
+  "version": "1.0.0",
+  "description": "决定系统的学习整体的前端知识，此项目就把练手的代码放进去",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/ma_shi_chen/front-end-learning-project.git"
+  },
+  "author": "msc",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
+  
