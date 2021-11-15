@@ -1,0 +1,17 @@
+
+console.log(
+    '%cThis text is styled!',
+    'color: red; background: yellow; font-size: 24px;'
+  )
+
+  console.log(Date);
+
+  ['log', 'info', 'warn', 'error'].forEach(function(method) {
+    console[method] = console[method].bind(
+      console,
+      new Date().toISOString()
+    );
+  });
+  
+  console.log("出错了！");
+  // 2014-05-18T09:00.000Z 出错了！
