@@ -36,3 +36,28 @@ var f = function () {
     console.log(arguments.callee === f);
 }
 
+var type = function (o) {
+    var s = Object.prototype.toString.call(o);
+    return s.match(/\[object (.*?)\]/)[1].toLowerCase();
+};
+console.log(type(new Date()));
+
+
+let msc = {
+
+    toString:()=> 'msc',
+    toLocaleString:()=>'马世臣'
+}
+
+console.log(msc.toLocaleString());
+
+let date = new Date();
+console.log(date.toString());
+console.log(date.toLocaleString());
+console.log(date.toUTCString());
+console.log(date.toDateString());
+console.log(date.toLocaleDateString());
+console.log(date.toLocaleTimeString());
+
+
+console.log(msc.hasOwnProperty('toLocaleString'));
