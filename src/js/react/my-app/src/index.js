@@ -159,6 +159,5 @@ ReactDOM.render(
             Primary Button
         </Button>
     </div>,
-
     document.getElementById('root'))
 
