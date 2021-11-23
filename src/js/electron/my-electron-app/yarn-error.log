@@ -1,0 +1,39 @@
+Arguments: 
+  /home/mashichen/msc/node/nodejs/bin/node /usr/local/bin/yarn add --dev @electron-forge/cli
+
+PATH: 
+  /home/mashichen/msc/java/jdk11/bin:/home/mashichen/msc/java/jdk11/bin:/home/mashichen/msc/node/nodejs/bin:/home/mashichen/msc/node/nodejs/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.11.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: EACCES: permission denied, mkdir '/home/mashichen/msc/VscodeProject/front-end-learning-project/src/js/electron/my-electron-app/node_modules/@electron/get/node_modules/fs-extra'
+
+npm manifest: 
+  {
+    "name": "my-electron-app",
+    "version": "1.0.0",
+    "description": "test",
+    "main": "main.js",
+    "author": "msc",
+    "license": "MIT",
+    "devDependencies": {
+      "electron": "^16.0.1"
+    },
+    "scripts": {
+      "start": "electron --no-sandbox ."
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
