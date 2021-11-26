@@ -46,7 +46,7 @@ console.log(Array.prototype.join.call('hello', ':'));
 
 console.log([1, 2, 3].concat([4, 5, 6]));
 
-console.log(Array.prototype.slice.call({0: 1, 1: 2, length: 2}));
+console.log(Array.prototype.slice.call({ 0: 1, 1: 2, length: 2 }));
 
 console.log([1, 2, 3, 4, 5].slice());
 
