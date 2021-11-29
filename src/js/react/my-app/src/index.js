@@ -149,6 +149,201 @@ function calculateWinner(squares) {
 // ReactDOM.render(<Game />, document.getElementById("root"));
 
 
+class Clock extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { date: new Date() };
+    }
+
+    componentDidMount() {
+        this.timerID = setInterval(() => this.tick(), 1000)
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+
+    tick() {
+        this.setState({
+            date: new Date()
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>Hello world!</h1>
+                <h2>It is {this.state.date.getTime()}</h2>
+            </div>
+
+        );
+    }
+}
+
+function MailBox(props) {
+    const unreadMessages = props.unreadMessages;
+    return (
+        <div>
+            <h1>Hello!</h1>
+            {unreadMessages.length > 0 &&
+                <h2>
+                    You have {unreadMessages.length} unread messages
+                </h2>
+            }
+        </div>
+    )
+}
+
+
+function NumberList(props) {
+    const numbers = props.numbers;
+    console.log(numbers);
+    const listItems = numbers.map((number) =>
+        <li key={number.toString()}>
+            {number}
+        </li>
+    );
+    return (
+        <ul>{listItems}</ul>
+    );
+}
+
+
+class Reservation extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isGoing: true,
+            numberOfGuests: 2
+        };
+        this.handleInputChange = this.handleInputChange.bind(this);
+    }
+
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.name === 'isGoing' ? target.checked : target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value
+        });
+    }
+
+    render() {
+        return (
+            <form>
+                <label>
+                    参与:
+                    <input
+                        name="isGoing"
+                        type="checkbox"
+                        checked={this.state.isGoing}
+                        onChange={this.handleInputChange} />
+                </label>
+                <br />
+                <label>
+                    来宾人数:
+                    <input
+                        name="numberOfGuests"
+                        type="number"
+                        value={this.state.numberOfGuests}
+                        onChange={this.handleInputChange} />
+                </label>
+            </form>
+        );
+    }
+}
+
+
+function BoilingVerdict(props) {
+    if (props.celsius >= 100) {
+        return <p>The water woild boil.</p>;
+    }
+    return <p>The water would not boild.</p>
+}
+
+
+const scaleNames = {
+    c: 'Celsius',
+    f: 'Fahrenheit'
+};
+class TemperatureInput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(e) {
+        this.props.onTemperatureChange(e.target.value);
+    }
+
+    render() {
+        const temperature = this.props.temperature;
+        const scale = this.props.scale;
+        return (
+            <fieldset>
+                <legend>Enter temperature in {scaleNames[scale]}:</legend>
+                <input value={temperature}
+                    onChange={this.handleChange} />
+            </fieldset>
+        );
+    }
+}
+class Calculator extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleCelsiusChange = this.handleCelsiusChange.bind(this);
+        this.handleFahrenheitChange = this.handleFahrenheitChange.bind(this);
+        this.state = { temperature: '', scale: 'c' };
+    }
+
+    handleCelsiusChange(temperature) {
+        this.setState({ scale: 'c', temperature });
+    }
+
+    handleFahrenheitChange(temperature) {
+        this.setState({ scale: 'f', temperature });
+    }
+
+    render() {
+        const scale = this.state.scale;
+        const temperature = this.state.temperature;
+        const celsius = scale === 'f' ? tryConvert(temperature, toCelsius) : temperature;
+        const fahrenheit = scale === 'c' ? tryConvert(temperature, toFahrenheit) : temperature;
+
+        return (
+            <div>
+                <TemperatureInput
+                    scale="c"
+                    temperature={celsius}
+                    onTemperatureChange={this.handleCelsiusChange} />
+                <TemperatureInput
+                    scale="f"
+                    temperature={fahrenheit}
+                    onTemperatureChange={this.handleFahrenheitChange} />
+                <BoilingVerdict
+                    celsius={parseFloat(celsius)} />
+            </div>
+        );
+    }
+}
+
+function toCelsius(fahrenheit) {
+    return (fahrenheit - 32) * 5 / 9;
+}
+
+function toFahrenheit(celsius) {
+    return (celsius * 9 / 5) + 32;
+}
+
+function tryConvert(temperature, convert) {
+    const input = parseFloat(temperature);
+    if (Number.isNaN(input)) {
+        return '';
+    }
+    const output = convert(input);
+    const rounded = Math.round(output * 1000) / 1000;
+    return rounded.toString();
+}
 
 
 ReactDOM.render(
@@ -156,8 +351,13 @@ ReactDOM.render(
         <h1>antd version: {version}</h1>
         <DatePicker />
         <Button type="primary" style={{ marginLeft: 8 }}>
-            Primary Button
+            Primary Button 233
         </Button>
+        <Clock />
+        <MailBox unreadMessages={['React', 'Re: React', 'Re:Re: React']} />
+        <NumberList numbers={[1, 2, 3, 4, 5]} />
+        <Reservation />
+        <Calculator />
     </div>,
     document.getElementById('root'))
 
