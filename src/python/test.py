@@ -1,4 +1,3 @@
 
 
-
-print(2**1024)
+print('hello world')
