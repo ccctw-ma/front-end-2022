@@ -27,3 +27,8 @@ let arr = [1,2,3,4,5]
 let index = Math.random()*5;
 console.log(~~index);
 console.log(arr.splice(index,1))
+console.log('hello world')
+console.log('hello world')
+console.log('hello world')
+console.log('hello world')
+console.log('hello world')
