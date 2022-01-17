@@ -1,4 +1,7 @@
 
 
-print('hello world')
-print(36**12)
+
+
+
+print(39*39*3)
+

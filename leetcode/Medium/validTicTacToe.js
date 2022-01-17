@@ -19,8 +19,8 @@ var validTicTacToe = function (board) {
             if (board[i][j] === 'O') o++;
         }
     }
-    if (x < o || x - o > 1 || (x === o && check(board, 'X') && x !== 0) || (check(board, 'O') && x > o)) return false;
-    return true;
+    return !(x < o || x - o > 1 || (x === o && check(board, 'X') && x !== 0) || (check(board, 'O') && x > o));
+
 };
 
 const check = (board, c) => {
