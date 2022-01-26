@@ -15,4 +15,3 @@ function throwit() {
 
   decodeURI('%2')
 
-  new 123

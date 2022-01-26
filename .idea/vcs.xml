@@ -2,9 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/js/node/qq_music" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/js/react/react" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/js/react/redux" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/js/three/three.js" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/js/TensorFlow/lipsync" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/js/TensorFlow/tfjs-models" vcs="Git" />
   </component>
 </project>

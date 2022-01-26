@@ -61,3 +61,12 @@ console.log(date.toLocaleTimeString());
 
 
 console.log(msc.hasOwnProperty('toLocaleString'));
+
+let str = "hello world"
+let foo = [...str]
+console.log(foo.join(""))
+
+let a = {}
+let b = a?.c ?? 2;
+console.log(b)
+

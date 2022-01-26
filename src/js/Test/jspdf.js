@@ -8,7 +8,12 @@ const jsPDF = require('jspdf')
 // }
 // console.log(infos)
 
-console.log(isNaN(Number('五')))
+// console.log(isNaN(Number('五')))
 
 
-console.log(!!{})
+// console.log(!!{})
+
+
+
+let arr = [1,2,3,4,5]
+console.log(arr.splice(0));
