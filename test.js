@@ -3,4 +3,8 @@
 
 
 
-console.log('This file is use for git test')
+
+
+let arr = [1,2,3]
+
+const m = new Map();

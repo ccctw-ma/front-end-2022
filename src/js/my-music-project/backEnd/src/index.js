@@ -6,7 +6,7 @@ const dotenv = require("dotenv")
 const app = new Koa();
 
 //配置环境变量
-dotenv.config({path:'../.env'})
+dotenv.config({ path: '../.env' })
 
 
 // set up top level koa middleware
@@ -26,6 +26,7 @@ for (let route of routes) {
     app.use(route.routes())
 }
 
-app.listen(process.env.PORT)
+// app.listen(process.env.PORT)
+app.listen(7977)
 
-console.log("app started at port "+process.env.PORT)
+console.log("app started at port " + 7977)
