@@ -13,7 +13,6 @@
   "author": "msc",
   "license": "ISC",
   "dependencies": {
-    "@tensorflow/tfjs": "^3.13.0",
     "axios": "^0.24.0",
     "dayjs": "^1.10.7",
     "jspdf": "^2.5.0",

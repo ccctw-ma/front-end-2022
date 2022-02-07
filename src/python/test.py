@@ -1,7 +1,5 @@
 
 
+import os
 
-
-
-print(39*39*3)
-
+print(os.path)

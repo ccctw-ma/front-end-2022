@@ -5,7 +5,7 @@
  * @LastEditors: msc
  * @Description:
  */
-import {useState} from 'react'
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getInvoice, deleteInvoice } from "../data";
 import { Button } from "antd";
@@ -13,7 +13,7 @@ export default function Invoice() {
   let navigate = useNavigate();
   let params = useParams();
   let invoice = getInvoice(parseInt(params.invoiceId, 10));
-  const [show,setShow] =  useState(true)
+  const [show, setShow] = useState(true);
   return (
     <main style={{ padding: "1rem" }}>
       <h2 className="animate__animated  animate__pulse">
@@ -23,39 +23,30 @@ export default function Invoice() {
         {invoice.name}: {invoice.number}
       </p>
       <p>Due Date: {invoice.due}</p>
-    
-        <Button
-          type="primary"
-          onClick={() => {
-            deleteInvoice(invoice.number);
-            navigate("/invoices");
-          }}
-        >
-          Delete
-        </Button>
 
-        <Button
-          type="primary"
-          // loading
-          danger
-          onClick={() => {
-            setShow(!show)
-            // console.log("first",show);
-          }}
-        >
-          Loading
-        </Button>
-        
-        {show &&
+      <Button
+        type="primary"
+        onClick={() => {
+          deleteInvoice(invoice.number);
+          navigate("/invoices");
+        }}
+      >
+        Delete
+      </Button>
 
-          <h1 className="animate__animated  animate__pulse">
+      <Button
+        type="primary"
+        // loading
+        danger
+        onClick={() => {
+          setShow(!show);
+          // console.log("first",show);
+        }}
+      >
+        Loading
+      </Button>
 
-            Helloo 
-          </h1>
-        }
-
-        
-      
+      {show && <h1 className="animate__animated  animate__pulse">Hello</h1>}
     </main>
   );
 }
