@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 /**
  * @Author: msc
  * @Date: 2022-01-28 21:05:53
- * @LastEditTime: 2022-01-29 23:27:36
+ * @LastEditTime: 2022-02-07 17:25:19
  * @LastEditors: msc
  * @Description: 
  */
@@ -29,7 +30,7 @@ export const infoAsyncActions = {
     initInfo: () => {
         return async (dispatch, getState) => {
             try {
-                const res = await API.GET("/hello")
+                const res = await API.GET("/test/hello")
                 if (res.status === 200) {
                     dispatch(infoActions.setInfo(res.data))
                 } else {
