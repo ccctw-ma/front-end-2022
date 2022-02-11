@@ -4,30 +4,23 @@ import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./stores/store";
-import style from "./styles/App.module.css";
+import style from "./styles/App.module.scss";
 import Header from "./components/Header";
-
+import MusicPlay from "./components/MusicPlay";
 export default function App() {
   return (
     <>
       <Provider store={store}>
         <div className={style.main}>
-          {/* <div className={style.mainContent}> */}
-          <Header />
-
-          <h1>Bookkeeper</h1>
-          <nav
-            style={{
-              borderBottom: "solid 1px",
-              paddingBottom: "1rem",
-            }}
-          >
-            <Link to="/invoices">Invoices</Link>
-            <Link to="/expenses">Expenses</Link>
-          </nav>
-          <Outlet />
-          <div>这里是音乐播放器</div>
-          {/* </div> */}
+          <div className={style.header}>
+            <Header />
+          </div>
+          <div className={style.content}>
+            <Outlet />
+          </div>
+          <div className={style.musicPlay}>
+            <MusicPlay />
+          </div>
         </div>
       </Provider>
     </>

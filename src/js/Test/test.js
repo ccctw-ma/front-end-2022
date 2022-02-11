@@ -99,7 +99,6 @@ if(aa){
 
 
 
-
-
-
+let error = ['hello world',"大周期余量不足","小周期浴帘公布"]
+console.log(error.join(' / '));
 

@@ -1,0 +1,32 @@
+.main{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+}
+
+
+.musicList{
+
+   width: 90%;
+   margin: auto;
+   .musicInfo{
+      width: 100%;      
+      display: grid;
+      grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+      column-gap: 10px;
+      padding: 10px;
+      &:hover{
+         background-color: aquamarine;
+         cursor: pointer;
+      }
+      .text{
+         white-space:nowrap;
+         overflow: hidden;
+         text-overflow: ellipsis;
+      }
+    
+   }
+}
+
+

@@ -50,21 +50,6 @@ export function Counter() {
   } else if (isError) {
     content = <div>isError</div>;
   }
-
-  let music;
-
-  music = (
-    <div style={{ width: "200px", height:"200px" }}>
-      music
-      <audio src="https://sveltejs.github.io/assets/music/holst.mp3" id="music" controls ></audio>
-      <audio src="http://m7.music.126.net/20220208005734/285b6c3f095271e4e98b89ca083bb7b7/ymusic/0fd6/4f65/43ed/a8772889f38dfcb91c04da915b301617.mp3" id="music" controls ></audio>
-      <audio src="https://sveltejs.github.io/assets/music/mozart.mp3" id="music" controls ></audio>
-      
-    </div>
-
-    
-  );
-
   return (
     <div>
       <div className={styles.row}>
@@ -116,7 +101,6 @@ export function Counter() {
         </button>
       </div>
       <div className={styles.row}>{content}</div>
-      <div className={styles.row}>{music}</div>
     </div>
   );
 }

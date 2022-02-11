@@ -1,9 +1,1 @@
-
-
-
-
-
-
-
-
-console.log("hello world");
+export * from "./time"
