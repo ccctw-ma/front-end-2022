@@ -15,7 +15,7 @@ module.exports = () => async (ctx, next) => {
 	if (cookieHeader) {
 		global.cookieList.forEach(cookie => {
 			const [key, value = ''] = cookie.split('=');
-
+		  // console.log(key ,value)
 			if (value) {
 				ctx.cookies.set(key, value.trim(), {
 					maxAge: 24 * 60 * 60 * 1000,

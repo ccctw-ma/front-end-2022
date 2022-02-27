@@ -1,15 +1,14 @@
 .main{
    display: flex;
    justify-content: center;
-   flex-direction: column;
+   flex-direction: row;
    align-items: center;
 }
 
 
 .musicList{
-
-   width: 90%;
    margin: auto;
+   width: calc(1024px * 0.8) ;
    .musicInfo{
       width: 100%;      
       display: grid;
@@ -25,7 +24,12 @@
          overflow: hidden;
          text-overflow: ellipsis;
       }
-    
+   }
+   .pagination{
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
    }
 }
 

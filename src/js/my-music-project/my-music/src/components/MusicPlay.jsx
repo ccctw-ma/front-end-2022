@@ -1,7 +1,7 @@
 /*
  * @Author: msc
  * @Date: 2022-02-08 20:37:44
- * @LastEditTime: 2022-02-11 22:58:06
+ * @LastEditTime: 2022-02-19 01:21:05
  * @LastEditors: msc
  * @Description: 音乐播放器
  */
@@ -129,7 +129,7 @@ export default function Header() {
     <div className={styles.main}>
       <audio
         ref={musicPlayer}
-        src={currentMusic.url ?? null}
+        src={currentMusic._musicUrl ?? null}
         id="music"
         controls
         style={{ display: "none" }}
@@ -146,7 +146,7 @@ export default function Header() {
               width={50}
               height={50}
               src={
-                currentMusic.al?.picUrl ||
+                currentMusic._coverUrl ||
                 "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fk-static.xsfaya.com%2Fuploads%2Fallimg%2F210701%2F095Z16364-1.jpg&refer=http%3A%2F%2Fk-static.xsfaya.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647000525&t=b10f8a7b13931eb53f4aa187299316a4"
               }
             />
@@ -160,10 +160,10 @@ export default function Header() {
               }}
               style={{ display: "block", width: "100px", marginTop: "-2px" }}
             >
-              {currentMusic.name}
+              {currentMusic._name}
             </Title>
             <Text strong ellipsis style={{ display: "block", width: "100px" }}>
-              {handleMusicAuthor(currentMusic.ar)}
+              {currentMusic._singerName}
             </Text>
           </div>
         </div>

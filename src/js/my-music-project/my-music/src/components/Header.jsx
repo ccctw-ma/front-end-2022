@@ -1,7 +1,7 @@
 /*
  * @Author: msc
  * @Date: 2022-02-07 22:31:43
- * @LastEditTime: 2022-02-11 23:19:27
+ * @LastEditTime: 2022-02-21 22:35:25
  * @LastEditors: msc
  * @Description: 界面的header
  */
@@ -16,11 +16,13 @@ import {
   useLoginMutation,
   useSearchMusicMutation,
 } from "../stores/netEaseSlice";
-import { setMusicList } from "../stores/musicSlice";
+import { useSearchMusicByMiGuMutation } from "../stores/miGuSlice";
+import { setMusicList, setCurrrentKeyWords } from "../stores/musicSlice";
 const { Search } = Input;
 export default function Header() {
   const [login, { isLoading }] = useLoginMutation();
   const [searchMusic, { isSearchMusic }] = useSearchMusicMutation();
+  const [searchMusicByMiGu] = useSearchMusicByMiGuMutation();
   const [profile, setProfile] = useState({});
   const dispatch = useDispatch();
   const handleLogin = async () => {
@@ -42,30 +44,34 @@ export default function Header() {
   }, []);
 
   const handleSearchMusics = async (keywords) => {
-    const res = await searchMusic(keywords);
-    console.log(res);
-    dispatch(setMusicList(res.data.result.songs))
+    // const netEaseRes = await searchMusic(keywords);
+    dispatch(setCurrrentKeyWords(keywords));
+    const miGuRes = await searchMusicByMiGu({ keywords, page: 1 });
+    console.log(miGuRes);
+    dispatch(
+      setMusicList({
+        type: "migu",
+        songs: miGuRes.data.data,
+        total: miGuRes.data.total,
+      })
+    );
   };
   return (
     <div className={styles.main}>
-      <Row justify="space-around">
-        <Col span={8}>
-          <Search placeholder="" onSearch={handleSearchMusics} enterButton />
-        </Col>
-        <Col span={8}>
-          <Avatar
-            src={<Image src={profile.avatarUrl} style={{ width: 32 }} />}
-          />
+      <div>
+        <Search placeholder="" onSearch={handleSearchMusics} enterButton />
+      </div>
 
-          {profile.nickname}
-        </Col>
-        <Col span={8}>
-          <Link to="/invoices">Invoices</Link>
-          <Link to="/expenses">Expenses</Link>
-          <Link to="/home">Home</Link>
-          <Button onClick={handleLogin}>登陆</Button>
-        </Col>
-      </Row>
+      <div>
+        <Avatar src={<Image src={profile.avatarUrl} style={{ width: 32 }} />} />
+      </div>
+
+      <div>
+        <Link to="/invoices">Invoices</Link>
+        <Link to="/expenses">Expenses</Link>
+        <Link to="/home">Home</Link>
+        <Button onClick={handleLogin}>登录</Button>
+      </div>
     </div>
   );
 }

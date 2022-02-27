@@ -1,0 +1,165 @@
+<!--
+ * @Author: msc
+ * @Date: 2022-02-13 23:14:45
+ * @LastEditTime: 2022-02-14 01:58:43
+ * @LastEditors: msc
+ * @Description: 
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>一个程序员的内心独白</title>
+    <meta name="Generator" content="EditPlus">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style>
+        .rose {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rose">
+        <h1 style="text-align: center; margin-top: 10vw;">送给我的宝贝</h1>
+        <h1 style="text-align: center;color: red;">-------朱非凡-------</h1>
+        <div id="demo" class="rose"><canvas id="c" height="500" width="500"></canvas></div>
+
+
+
+        <strong style="text-align: justify ; width: 75vw;">
+            <h2 style="text-indent: 2em;"> 你好！ 朱非凡！</h2>
+            <h2 style="text-indent: 2em;">
+                在这里请你原谅我不能在情人节当天当面给你送上礼物与爱的抱抱。距离上次拥抱你已经过去了差不多1个多月了，过去的这段时间我真的非常想念你。
+                经常一个人在发呆时候就会想起我们之间发生的点点滴滴：<br>
+            <h2  style="text-indent: 2em;">
+                想起跨年时抱着你月光洒在你的脸上，那一刻的你美的令人动容；
+                想起在科研楼下等你时你慢慢走向我时那张美丽的笑脸；
+                想起和你牵着手在颐和园游览时那美丽的景色；
+                想起初次约你出来漫步在北邮校园时不停嗯嗯的小脑袋；
+                想起国庆假期在学三楼道里和你当面交谈时的那个激动；
+                想起在新中特课后教室门口和你打招呼时你那摇晃的小手；
+                想起初次在北邮校园见到你后就每天都想和你偶遇的小期待；
+                想起毕业典礼回头见到你之后那短暂的打招呼；
+                想起在18号楼下见到你时尴尬的对视；
+                想起在郑大碰见你的每个瞬间；
+                想着咱两故事的开始；
+            </h2>
+            <h2 style="text-indent: 2em;">
+                能和你在一起真的是上帝安排的一段姻缘，我这个人是非常相信缘分的。
+                之前的我一直渴望爱情，看到别人成双成对时说不羡慕那是不可能的，
+                我也一直在想象我的那一位会在哪里呢？她的名字是什么呢？
+                这些疑问在我步入研究生阶段时给了我答案，她在北邮，她的名字叫做朱非凡。
+                非常感谢你出现在我的世界里，我的世界有了一个我每天都愿意和她分享自己身边故事的人，
+                有了一个让我每天都牵挂在心的人，有了一个在我生病照顾我的人，有个让我每天都想逗她开心的人。<br>
+            </h2>
+            <h2 style="text-indent: 2em;">
+                不过也请你原谅我，人无完人。因为个人原因，我的不自信、自卑、对情感的极度敏感以及其他不好的点让你感到拘谨、不舒服或者是生气。
+                这些都会让我十分内疚，我不想因为我的原因让你感到难过。我不喜欢通过争吵的方式进行交流，我更倾向于通过发自内心的沟通来阐明自己的想法。
+                人都是有烦恼的，我也愿意做那一个能够倾听你的烦恼的那个人。
+            </h2>
+            <h2 style="text-indent: 2em; ">
+               人们都说异地恋是很困难的，经过这一个多月我也慢慢体会到了。看不到你，听不到你的声音，每天都只能通过文字与你沟通交流，往往一些误解就产生在其中。
+               在你难过的时候，我多么想陪在你的身边抱抱你，倾听你的心声。在你高兴的时候，我也多么希望在你的身边，看到你开心的笑容，听到你爽朗的笑声。
+               这段时间是难熬的，希望我们两人能够稳定度过这段时间。感情是需要磨砺的，我相信我们能够战胜这段挑战。
+            </h2>
+            <h2 style="text-indent: 2em;">
+                最后，我爱你！我的宝贝！我的非凡！
+            </h2>
+            <h2 style="text-align: right;">
+                来自：一个姓马的大坏蛋<br>
+                2022-02-14
+            </h2>
+
+        </strong>
+
+     
+        <img src="http://mms0.baidu.com/it/u=697826688,4116149295&fm=253&app=138&f=JPEG&fmt=auto&q=75?w=500&h=502"
+            alt="" srcset="">
+    </div>
+
+    <script>
+        var b = document.body;
+        var c = document.getElementsByTagName('canvas')[0];
+        var a = c.getContext('2d');
+        var canvas = document.getElementsByTagName('canvas')[0];
+        var ctx = canvas.getContext('2d');
+        document.body.clientWidth;
+
+        with(m = Math) C = cos, S = sin, P = pow, R = random;
+        c.width = c.height = f = 500;
+        h = -250;
+
+        function p(a, b, c) {
+            if (c > 60)
+                return [S(a * 7) * (13 + 5 / (.2 + P(b * 4, 4))) - S(b) * 50, b * f + 50, 625 + C(a * 7) * (13 + 5 / (
+                    .2 + P(b * 4, 4))) + b * 400, a * 1 - b / 2, a];
+            A = a * 2 - 1;
+            B = b * 2 - 1;
+            if (A * A + B * B < 1) {
+                if (c > 37) {
+                    n = (j = c & 1) ? 6 : 4;
+                    o = .5 / (a + .01) + C(b * 125) * 3 - a * 300;
+                    w = b * h;
+                    return [o * C(n) + w * S(n) + j * 610 - 390, o * S(n) - w * C(n) + 550 - j * 350, 1180 + C(B + A) *
+                        99 - j * 300, .4 - a * .1 + P(1 - B * B, -h * 6) * .15 - a * b * .4 + C(a + b) / 5 + P(C((
+                            o * (a + 1) + (B > 0 ? w : -w)) / 25), 30) * .1 * (1 - B * B), o / 1e3 + .7 - o * w *
+                        3e-6
+                    ]
+                }
+                if (c > 32) {
+                    c = c * 1.16 - .15;
+                    o = a * 45 - 20;
+                    w = b * b * h;
+                    z = o * S(c) + w * C(c) + 620;
+                    return [o * C(c) - w * S(c), 28 + C(B * .5) * 99 - b * b * b * 60 - z / 2 - h, z, (b * b * .3 + P((
+                        1 - (A * A)), 7) * .15 + .3) * b, b * .7]
+                }
+                o = A * (2 - b) * (80 - c * 2);
+                w = 99 - C(A) * 120 - C(b) * (-h - c * 4.9) + C(P(1 - b, 7)) * 50 + c * 2;
+                z = o * S(c) + w * C(c) + 700;
+                return [o * C(c) - w * S(c), B * 99 - C(P(b, 7)) * 50 - c / 3 - z / 1.35 + 450, z, (1 - b / 1.2) * .9 +
+                    a * .1, P((1 - b), 20) / 4 + .05
+                ]
+            }
+        }
+        var draw = setInterval(
+            'for(i=0;i<1e4;i++)if(s=p(R(),R(),i%46/.74)){z=s[2];x=~~(s[0]*f/z-h);y=~~(s[1]*f/z-h);if(!m[q=y*f+x]|m[q]>z)m[q]=z,a.fillStyle="rgb("+~(s[3]*h)+","+~(s[4]*h)+","+~(s[3]*s[3]*-80)+")",a.fillRect(x,y,1,1)}',
+            0);
+
+        var demo = document.getElementById('demo');
+
+        function redraw() {
+            /*
+            var d_c = document.createElement("canvas");
+            d_c.setAttribute("id","c");
+            d_c.setAttribute("width","520");
+            d_c.setAttribute("height","500");
+            demo.appendChild(d_c);
+            */
+            draw = setInterval(
+                'for(i=0;i<1e4;i++)if(s=p(R(),R(),i%46/.74)){z=s[2];x=~~(s[0]*f/z-h);y=~~(s[1]*f/z-h);if(!m[q=y*f+x]|m[q]>z)m[q]=z,a.fillStyle="rgb("+~(s[3]*h)+","+~(s[4]*h)+","+~(s[3]*s[3]*-80)+")",a.fillRect(x,y,1,1)}',
+                0);
+            //alert(d_c);
+        }
+
+        function clear_canvas() {
+            ctx.clearRect(0, 0, 520, 500);
+            //canvas.parentNode.removeChild(canvas);   //删除
+        }
+
+        function stop_draw(obj) {
+            clearInterval(obj);
+        }
+    </script>
+
+</body>
+
+</html>

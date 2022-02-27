@@ -61,44 +61,41 @@ let material = {
 //     console.log(material[key])
 // })
 
-Object.entries(material).forEach(e=>{
+Object.entries(material).forEach(e => {
     console.log(e)
 })
 
-let arr =[1,2,3]
-arr.push(...[4,5,6])
+let arr = [1, 2, 3]
+arr.push(...[4, 5, 6])
 console.log(arr)
-console.log(arr.map(e=> {
-    if(e>=3) return e
+console.log(arr.map(e => {
+    if (e >= 3) return e
 }))
 
 let o = {
-    id:'123',
+    id: '123',
     title: '334'
 }
 
 let c = {
-    
     ...o,
     ...{
-        id:'456',
-        name:'szh',
-        age:23
+        id: '456',
+        name: 'szh',
+        age: 23
     },
 }
 console.log(c)
 
 
-let aa = [0]
-console.log(!!aa)
-if(aa){
-    console.log(aa==true)
-}else {
-    console.log(aa)
-}
+// let aa = [0]
+// console.log(!!aa)
+// if (aa) {
+//     console.log(aa == true)
+// } else {
+//     console.log(aa)
+// }
 
+// console.log(dayjs(dayjs(new Date()).format("YYYY-MM-DD")).add(1, "day").toISOString());
 
-
-let error = ['hello world',"大周期余量不足","小周期浴帘公布"]
-console.log(error.join(' / '));
-
+console.log(dayjs(new Date()).year());
