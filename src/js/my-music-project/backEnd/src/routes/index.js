@@ -1,7 +1,7 @@
 const fs = require("fs")
-
+const path = require("path")
 // 自动导入新生成的路由
-module.exports = fs.readdirSync(__dirname + "\\MiguMusic").reduce((pre, file) => {
+module.exports = fs.readdirSync(__dirname + "/MiguMusic").reduce((pre, file) => {
     const fileName = file.replace(/\.js/, "");
     if (fileName !== "index") {
         console.log(fileName)

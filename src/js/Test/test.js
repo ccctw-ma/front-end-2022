@@ -99,3 +99,6 @@ console.log(c)
 // console.log(dayjs(dayjs(new Date()).format("YYYY-MM-DD")).add(1, "day").toISOString());
 
 console.log(dayjs(new Date()).year());
+
+
+console.log(dayjs("2022-11-30").diff(dayjs("2021-11-30"),'year'))
