@@ -4,7 +4,7 @@
 /*
  * @Author: msc
  * @Date: 2022-03-02 20:53:06
- * @LastEditTime: 2022-03-02 21:19:39
+ * @LastEditTime: 2022-03-03 10:00:36
  * @LastEditors: msc
  * @Description: function
  */
@@ -36,7 +36,7 @@ console.log(employeeName);
 /**
  * this usage
  */
- interface Card {
+interface Card {
     suit: string;
     card: number;
 }
@@ -49,12 +49,12 @@ let deck: Deck = {
     suits: ["hearts", "spades", "clubs", "diamonds"],
     cards: Array(52),
     // NOTE: The function now explicitly specifies that its callee must be of type Deck
-    createCardPicker: function(this: Deck) {
+    createCardPicker: function (this: Deck) {
         return () => {
             let pickedCard = Math.floor(Math.random() * 52);
             let pickedSuit = Math.floor(pickedCard / 13);
 
-            return {suit: this.suits[pickedSuit], card: pickedCard % 13};
+            return { suit: this.suits[pickedSuit], card: pickedCard % 13 };
         }
     }
 }
@@ -67,13 +67,13 @@ let pickedCard = cardPicker();
 interface UIElement {
     addClickListener(onclick: (this: void, e: Event) => void): void;
 }
-class Handler {
-    info: string;
-    onClickBad(this: Handler, e: Event) {
-        // oops, used this here. using this callback would crash at runtime
-        this.info = e.message;
-    }
-}
-let h = new Handler();
-uiElement.addClickListener(h.onClickBad); // error!
+// class Handler {
+//     info: string;
+//     onClickBad(this: Handler, e: Event) {
+//         // oops, used this here. using this callback would crash at runtime
+//         this.info = e.message;
+//     }
+// }
+// let h = new Handler();
+// uiElement.addClickListener(h.onClickBad); // error!
 
