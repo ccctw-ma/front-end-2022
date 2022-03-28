@@ -6,6 +6,8 @@
     <mapping directory="$PROJECT_DIR$/src/js/TensorFlow/tfjs-models" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/js/cloud-music" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/js/cloud-music/NeteaseCloudMusicApi" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/js/electron/electron-react" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/js/electron/weweChat" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/js/my-music-project/MiguMusicApi" vcs="Git" />
   </component>
 </project>
