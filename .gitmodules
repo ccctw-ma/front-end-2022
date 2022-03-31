@@ -6,6 +6,7 @@
 	path = src/js/ReactNative/react-native-animated-todo
 	url = https://github.com/craftzdog/react-native-animated-todo.git
 
-[submodule "MiguMusicApi"]
-	path = src/js/my-music-project/MiguMusicApi
+
+[submodule ".\\src\\js\\my-music-project\\MiguMusicApi"]
+	path = .\\src\\js\\my-music-project\\MiguMusicApi
 	url = https://github.com/jsososo/MiguMusicApi.git
