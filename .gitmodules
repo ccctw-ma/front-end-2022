@@ -1,3 +1,11 @@
-[submodule "src/js/node/qq_music"]
+[submodule "qq_music"]
 	path = src/js/node/qq_music
 	url = https://github.com/Rain120/qq-music-api.git
+
+[submodule "react-native-animated-todo"]
+	path = src/js/ReactNative/react-native-animated-todo
+	url = https://github.com/craftzdog/react-native-animated-todo.git
+
+[submodule "MiguMusicApi"]
+	path = src/js/my-music-project/MiguMusicApi
+	url = https://github.com/jsososo/MiguMusicApi.git
