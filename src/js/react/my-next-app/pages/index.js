@@ -23,7 +23,11 @@ export default function Home() {
           Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code>
         </p>
-
+        {/* <p class="line-clamp-3 md:line-clamp-none">
+          Et molestiae hic earum repellat aliquid est doloribus delectus. Enim illum odio porro ut omnis
+          dolor debitis natus. Voluptas possimus deserunt sit delectus est saepe nihil. Qui voluptate
+          possimus et quia. Eligendi voluptas voluptas dolor cum. Rerum est quos quos id ut molestiae fugit.
+        </p> */}
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
