@@ -42,9 +42,9 @@ const demo = {
 
     // `paramsSerializer` 是一个负责 `params` 序列化的函数
     // (e.g. https://www.npmjs.com/package/qs, http://api.jquery.com/jquery.param/)
-    paramsSerializer: function (params) {
-        return Qs.stringify(params, {arrayFormat: 'brackets'})
-    },
+    // paramsSerializer: function (params) {
+    //     return Qs.stringify(params, {arrayFormat: 'brackets'})
+    // },
 
     // `data` 是作为请求主体被发送的数据
     // 只适用于这些请求方法 'PUT', 'POST', 和 'PATCH'

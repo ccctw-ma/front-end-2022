@@ -1,7 +1,7 @@
 /*
  * @Author: msc
  * @Date: 2022-04-15 21:07:59
- * @LastEditTime: 2022-04-24 19:57:26
+ * @LastEditTime: 2022-05-02 18:05:43
  * @LastEditors: msc
  * @Description:
  */
@@ -9,7 +9,7 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
-import Layout from "../../components/layout";
+// import Layout from "../../components/layout";
 
 export default function TailWindCss() {
   return (
