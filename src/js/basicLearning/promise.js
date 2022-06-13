@@ -1,7 +1,7 @@
 /**
  * @Author: msc
  * @Date: 2021-11-16 23:58:53
- * @LastEditTime: 2022-03-02 00:28:05
+ * @LastEditTime: 2022-06-08 22:45:58
  * @LastEditors: msc
  * @Description: 
  */
@@ -124,17 +124,95 @@ allSettledPromise.then(function (results) {
 
 
 
-const p1 = new Promise((resolve, reject) => {
-    resolve("Hello")
-}).then(res => res)
+// const p1 = new Promise((resolve, reject) => {
+//     resolve("Hello")
+// }).then(res => res)
 
-const p2 = new Promise((resolve, reject) => {
-    throw new Error("报错了");
-}).then(res => res)
+// const p2 = new Promise((resolve, reject) => {
+//     throw new Error("报错了");
+// }).then(res => res)
 
-Promise.all([p1, p2]).then(res => console.log(res))
-    .catch(e => console.log(e))
+// Promise.all([p1, p2]).then(res => console.log(res))
+//     .catch(e => console.log(e))
 
+// setTimeout(() => {
+//     console.log("定时器1");
+// }, 0);
+// setTimeout(() => {
+//     console.log("宏任务2");
+// }, 0)
+// new Promise((resolve) => {
+//     console.log('同步代码');
+//     setTimeout(() => {
+//         resolve('异步代码')
+//     },50)
+// }).then((res) => {
+//     console.log(res);
+// })
+// console.log("奥特曼");
+// console.log(1)
+// setTimeout(function () {
+//     console.log(2);
+//     let promise = new Promise(function (resolve, reject) {
+//         console.log(7);
+//         resolve()
+//     }).then(function () {
+//         console.log(8)
+//     });
+// }, 1000);
+// setTimeout(function () {
+//     console.log(10);
+//     let promise = new Promise(function (resolve, reject) {
+//         console.log(11);
+//         resolve()
+//     }).then(function () {
+//         console.log(12)
+//     });
+// }, 0);
+// let promise = new Promise(function (resolve, reject) {
+//     console.log(3);
+//     resolve()
+// }).then(function () {
+//     console.log(4)
+// }).then(function () {
+//     console.log(9)
+// });
+// console.log(5)
+// 1, 3, 5, 4, 9, 10, 11, 12, 2, 7, 8
+console.log('1');
 
+setTimeout(function () {
+    console.log('2');
+    process.nextTick(function () {
+        console.log('3');
+    })
+    new Promise(function (resolve) {
+        console.log('4');
+        resolve();
+    }).then(function () {
+        console.log('5')
+    })
+})
+process.nextTick(function () {
+    console.log('6');
+})
+new Promise(function (resolve) {
+    console.log('7');
+    resolve();
+}).then(function () {
+    console.log('8')
+})
 
-
+setTimeout(function () {
+    console.log('9');
+    process.nextTick(function () {
+        console.log('10');
+    })
+    new Promise(function (resolve) {
+        console.log('11');
+        resolve();
+    }).then(function () {
+        console.log('12')
+    })
+})
+//1,7,6,8,2,4,3,5,9,11,10,12

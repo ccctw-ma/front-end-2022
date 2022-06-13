@@ -1,11 +1,12 @@
 /**
  * @Author: msc
  * @Date: 2022-05-03 15:54:19
- * @LastEditTime: 2022-05-03 18:14:16
+ * @LastEditTime: 2022-06-13 01:13:26
  * @LastEditors: msc
  * @Description: 
  */
 
+import { useState, useEffect } from "react";
 
 export const musicFormatter = (musics, type) => {
     let res = [];
@@ -35,4 +36,14 @@ export const fetchMusicDetail = async (music, type) => {
     } else {
         return {}
     }
+}
+
+export function useMusicPlayer() {
+    const [musicPlayer, setMusicPlayer] = useState(null);
+    useEffect(() => {
+        const audio = document.getElementById('musicPlayer');
+        // console.log(audio);
+        // console.log(audio.currentSrc);
+    }, []);
+    return musicPlayer;
 }

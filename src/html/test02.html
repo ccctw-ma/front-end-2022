@@ -6,16 +6,95 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>canvas { width: 100%; height: 100% }</style>
+    <style>
+        canvas {
+            width: 100%;
+            height: 100%
+        }
+    </style>
 </head>
 
 <body>
-    <script src="https://raw.github.com/mrdoob/three.js/master/build/three.js"></script>
+
+
+    <div>
+
+        <h2>测试防抖</h2>
+        <input type="text" id="input_1">
+    </div>
+
+    <div id="container">
+
+    </div>
+    <!-- <script src="https://raw.github.com/mrdoob/three.js/master/build/three.js"></script> -->
+
 </body>
 <script>
-    window.addEventListener('message', function (e) {
-        console.log(e);
-    }, false);
+    function debounce(fn, delay = 500) {
+        let timer = null;
+        return function (...args) {
+            // console.log(timer);
+            if (timer) clearTimeout(timer);
+            timer = setTimeout(() => {
+                // console.log(this);
+                // console.log(args);
+                fn.apply(this, args);
+            }, delay)
+        }
+    }
+
+    function throttle(fn, delay = 1000) {
+        let canRun = true;
+        return function (...args) {
+            console.log(canRun);
+            if (!canRun) return;
+            canRun = false;
+            setTimeout(() => {
+                fn.apply(this, arguments);
+                canRun = true;
+            }, delay);
+        }
+    }
+    // console.log("Hello world");
+    let input_1 = document.getElementById('input_1');
+    // console.log(input_1);
+    input_1.addEventListener('input', throttle((e) => {
+        console.log('event= ', e.target.value);
+        // console.log('this ', this);
+    }, 500))
+    var length = 10;
+
+    function fn() {
+        return this.length + 1;
+    }
+
+    var obj = {
+        length: 5,
+        test1: function () {
+            return fn();
+        }
+    }
+    obj.test2 = fn;
+
+    function render() {
+        const d = document.getElementById('container');
+        const size = 1000;
+        const chunk = 50000 / size;
+        let i = 0;
+        setTimeout(function render() {
+            console.log(new Date())
+            for (let index = 0; index < size; index++) {
+                const e = document.createElement('div');
+                e.textContent = "Hello" + index;
+                d.appendChild(e);
+            }
+            i++;
+            if(i < chunk){
+                setTimeout(render, 0);
+            }
+        }, 0);
+    };
+    // render();
 </script>
 
 </html>

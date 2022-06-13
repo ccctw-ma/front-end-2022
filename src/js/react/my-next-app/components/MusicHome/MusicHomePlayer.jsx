@@ -1,34 +1,35 @@
 /*
  * @Author: msc
  * @Date: 2022-05-02 17:22:30
- * @LastEditTime: 2022-05-03 23:33:40
+ * @LastEditTime: 2022-06-13 16:50:32
  * @LastEditors: msc
  * @Description: 
  */
 
 
 import React, { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { keyWordsState, curMusicState, musicListState } from "../store";
-import { timeFormatter } from "../util/time";
-import API from "../util/request";
-import { musicFormatter, fetchMusicDetail } from "../util/music";
+import { keyWordsState, curMusicState, musicListState, curMusicPlayState } from "../../store";
+import { timeFormatter } from "../../util/time";
+import API from "../../util/request";
+import { musicFormatter, fetchMusicDetail } from "../../util/music";
 import {
     NetEaseIcon,
     QQMusicIcon,
     BilibiliIcon,
     MiGuMusicIcon,
     OtherIcon,
-} from "./customizeIcons";
+} from "../customizeIcons";
 import { MenuUnfoldOutlined, PlayCircleOutlined, PauseCircleOutlined } from "@ant-design/icons"
-import styles from "../styles/App.module.css"
+import styles from "../../styles/App.module.css"
 
 
-export default function HomeMusicPlay() {
+export default function MusicHomePlayer({setIsHome, musicPlayer}) {
 
     const curMusic = useRecoilValue(curMusicState), setCurMusic = useSetRecoilState(curMusicState);
-    const musicPlayer = useRef(null);
-
+    const curMusicPlay = useRecoilValue(curMusicPlayState);
+    // const musicPlayer = {...curMusicPlay.musicPlayer};
     const [isPlay, setPlay] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
@@ -36,7 +37,7 @@ export default function HomeMusicPlay() {
 
 
     useEffect(() => {
-        console.log('effect music play', curMusic);
+        console.log('当前选中的音乐', curMusic);
         if (!curMusic._musicUrl) {
             musicPlayer.current.pause();
             setPlay(false);
@@ -47,25 +48,28 @@ export default function HomeMusicPlay() {
         }
     }, [curMusic])
 
-    useEffect(() => {
-        musicPlayer.current.focus();
-        // setDuration(musicPlayer.current.duration);
-    });
+    // useEffect(() => {
+    //     musicPlayer.current.focus();
+    //     // setDuration(musicPlayer.current.duration);
+    //     setCurrentTime(curMusicPlay.currentTime);
+    //     musicPlayer.current.currentTime = curMusicPlay.currentTime;
+    // }, []);
+    
 
     useEffect(() => {
         if (isPlay) {
-            console.log(musicPlayer, isPlay);
+            // console.log(musicPlayer, isPlay);
             // console.log(curMusic._musicUrl);
             musicPlayer.current.play();
         } else {
-            console.log(musicPlayer, isPlay);
+            // console.log(musicPlayer, isPlay);
             musicPlayer.current.pause();
         }
     }, [isPlay]);
 
     return (
         <div className="w-full">
-            <audio
+            {/* <audio
                 ref={musicPlayer}
                 src={curMusic._musicUrl ?? null}
                 id="music"
@@ -77,9 +81,9 @@ export default function HomeMusicPlay() {
                         setPlay(false);
                     }
                 }}
-            ></audio>
+            ></audio> */}
             <div className="w-full h-14 flex flex-row items-center bg-white">
-                <div className="w-2/12">
+                <div className="w-2/12" onClick={() => setIsHome(false)}>
                     <img
                         src={curMusic._coverUrl} alt="图片"
                         className={`${styles.musicPlaySpin} ${!isPlay && styles.musicPlaySpinPause} 

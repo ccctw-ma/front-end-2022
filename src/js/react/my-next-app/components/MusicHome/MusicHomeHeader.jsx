@@ -1,19 +1,19 @@
 /*
  * @Author: msc
  * @Date: 2022-05-02 16:32:17
- * @LastEditTime: 2022-05-03 17:57:33
+ * @LastEditTime: 2022-06-12 22:42:01
  * @LastEditors: msc
  * @Description: 界面的header
  */
 
 import React, { useState, useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil"
-import { keyWordsState, musicListState } from "../store"
+import { keyWordsState, musicListState } from "../../store"
 import { SearchOutlined, UnorderedListOutlined } from "@ant-design/icons";
-import API from "../util/request";
-import { musicFormatter } from "../util/music";
+import API from "../../util/request";
+import { musicFormatter } from "../../util/music";
 
-export default function Header() {
+export default function MusicHomeHeader() {
 
   const [searchStr, setSearchStr] = useState("周杰伦");
   const setkeyWords = useSetRecoilState(keyWordsState);
@@ -46,7 +46,7 @@ export default function Header() {
 
 
   return (
-    <div className="container p-1 h-full">
+    <div className="w-full h-full p-1">
 
       <div className="grid grid-cols-8 gap-1">
 

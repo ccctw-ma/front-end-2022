@@ -22,7 +22,7 @@
 }
 
 .musicPlaySpin {
-  animation: spin 15s linear infinite;
+  animation: spin 30s linear infinite;
 }
 
 @keyframes spin {
@@ -36,4 +36,20 @@
 
 .musicPlaySpinPause{
   animation-play-state: paused;
+}
+
+.musicNameLoop{
+  animation: 15s wordLoop linear infinite normal;
+}
+
+@keyframes wordLoop {
+  0% {
+    transform: translateX(200px);
+    -webkit-transform: translateX(200px);
+  }
+
+  100%{
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
 }

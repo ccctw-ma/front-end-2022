@@ -19,7 +19,9 @@ btn.addEventListener('click', () => {
 
 
 let indexDb = document.getElementById('db');
-indexDb.addEventListener('click',())
+indexDb.addEventListener('click', () => {
+    console.log("Hello world");
+})
 
 let request = window.indexedDB.open('test01', 1)
 request.onerror = function (event) {
