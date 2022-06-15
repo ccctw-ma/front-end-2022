@@ -57,21 +57,15 @@ import {
     VolumeOpenIcon,
     VolumeCloseIcon,
 } from "../customizeIcons";
-// import styles from "./MusicPlay.module.scss";
 import { timeFormatter } from "../../util/time";
-const { Title, Text, Paragraph } = Typography;
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { keyWordsState, curMusicState, musicListState, curMusicPlayState } from "../../store";
-import styles from "../../styles/App.module.css"
 
 
 export default function MusicPlay({ musicPlayer }) {
 
     const curMusic = useRecoilValue(curMusicState), setCurMusic = useSetRecoilState(curMusicState);
     const curMusicPlay = useRecoilValue(curMusicPlayState), setCurMusicPlay = useSetRecoilState(curMusicPlayState);
-    const [play, setPlay] = useState(false);
-    const [currentTime, setCurrentTime] = useState(0);
-    const [duration, setDuration] = useState(0);
     const [volume, setVolume] = useState(100);
     // 0 -> 单曲循环 1->歌单循环 2-> 顺序播放 3-> 随机播放
     const [order, setOrder] = useState(0);
@@ -98,23 +92,7 @@ export default function MusicPlay({ musicPlayer }) {
         />
     );
 
-    useEffect(() => {
-        console.log(musicPlayer);
-        console.log(musicPlayer.current.duration);
-        setCurrentTime(musicPlayer.current.currentTime);
-        setDuration(musicPlayer.current.duration);
-        // musicPlayer.current.ontimeupdate = () => {
-        //     setCurrentTime(musicPlayer.current.currentTime);
-        // }
-        musicPlayer.current.onended = () => {
-            setCurMusicPlay(pre => {
-                return {
-                    ...pre,
-                    isPlay: false
-                }
-            })
-        }
-    }, []);
+
 
     const handleCurrentTimeChange = (value) => {
         console.log(value);
@@ -123,7 +101,7 @@ export default function MusicPlay({ musicPlayer }) {
 
     //播放与暂停
     const handlePlay = () => {
-        setCurMusicPlay(pre=>{
+        setCurMusicPlay(pre => {
             return {
                 ...pre,
                 isPlay: !curMusicPlay.isPlay
