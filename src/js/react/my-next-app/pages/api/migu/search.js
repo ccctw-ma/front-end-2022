@@ -1,7 +1,7 @@
 /**
  * @Author: msc
  * @Date: 2022-05-03 10:50:32
- * @LastEditTime: 2022-05-03 15:31:17
+ * @LastEditTime: 2022-06-14 16:44:25
  * @LastEditors: msc
  * @Description: 
  */
@@ -41,6 +41,7 @@ export default async function handler(req, res) {
         }
       }
     )
+    // console.log(data);
     res.status(200).json(data)
 
   } catch(e) {

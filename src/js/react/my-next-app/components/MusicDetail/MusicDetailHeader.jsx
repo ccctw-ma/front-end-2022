@@ -1,7 +1,7 @@
 /*
  * @Author: msc
  * @Date: 2022-05-19 15:54:51
- * @LastEditTime: 2022-06-12 22:49:11
+ * @LastEditTime: 2022-06-14 22:17:24
  * @LastEditors: msc
  * @Description: 
  */
@@ -18,7 +18,7 @@ export default function MusicHeader({setIsHome}) {
     const curMusic = useRecoilValue(curMusicState), setCurMusic = useSetRecoilState(curMusicState);
     const router = useRouter();
        return (
-        <div className='absoulte top-0 w-screen h-12 flex flex-row justify-between items-center z-10 text-white'>
+        <div className='w-screen h-12 flex flex-row justify-between items-center z-10 text-white'>
 
             <div className='w-3/12 flex justify-center items-center'
                 onClick={() => setIsHome(true)}>

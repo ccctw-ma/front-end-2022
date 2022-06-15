@@ -3,7 +3,6 @@ import MusicHome from "../components/MusicHome/MusicHome";
 import MusicDetail from "../components/MusicDetail/MusicDetail";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { curMusicState, curMusicPlayState } from "../store";
-import { useMusicPlayer } from "../util/music";
 
 export default function Home() {
 
@@ -13,19 +12,72 @@ export default function Home() {
   const curMusic = useRecoilValue(curMusicState);
   const curMusicPlay = useRecoilValue(curMusicPlayState), setCurMusicPlay = useSetRecoilState(curMusicPlayState);
   // 页面切换操作
-
   const [mainView, setMainView] = useState(null);
 
-
+  //主要显示界面
+  const mainContent = (
+    <div className="container h-screen overflow-hidden">
+      <div className={`absolute top-0 left-0 container h-screen transition-all duration-500 
+      ${!isHome && 'opacity-0 -z-10'}`}>
+        <MusicHome setIsHome={setIsHome} musicPlayer={musicPlayer} />
+      </div>
+      <div className={`absolute top-0 left-0 container h-screen transition-all duration-500 
+      ${isHome && 'opacity-0 -z-10'}`}>
+        <MusicDetail setIsHome={setIsHome} musicPlayer={musicPlayer} />
+      </div>
+    </div>
+  )
 
   // 页面初试化
   useEffect(() => {
     console.log("Hello, welcome to my react music app");
-    console.log("index", musicPlayer);
-    musicPlayer.current.focus();
-    setMainView(<MusicHome setIsHome={setIsHome} musicPlayer={musicPlayer} />)
+    console.log("This is the music player of my app", musicPlayer);
+    console.log("The initial status of curMuic and curMusicPlay", curMusic, curMusicPlay);
+    // musicPlayer.current.focus();
+    // musicPlayer.current.play();
+    musicPlayer.current.ontimeupdate = (e) => {
+    
+      setCurMusicPlay(pre => {
+        return {
+          ...pre,
+          currentTime: musicPlayer.current.currentTime,
+          duration: musicPlayer.current.duration
+        }
+      })
+    }
 
+    setMainView(mainContent);
   }, []);
+
+  useEffect(() => {
+    console.log('切换显示界面', isHome);
+    setMainView(mainContent)
+  }, [isHome]);
+
+  useEffect(() => {
+    console.log('当前选中的音乐', curMusic);
+    if (!curMusic._musicUrl) {
+      musicPlayer.current.pause();
+    } else {
+      musicPlayer.current.currentTime = 0;
+      musicPlayer.current.play();
+      console.log(musicPlayer);
+    }
+  }, [curMusic])
+
+  //全局的控制音乐播放器的状态
+  useEffect(() => {
+    console.log(curMusicPlay);
+    console.log(musicPlayer);
+    //判断是否播放
+    if (curMusicPlay.isPlay) {
+      musicPlayer.current.play();
+    } else {
+      musicPlayer.current.pause();
+    }
+  }, [curMusicPlay]);
+
+
 
   return (
     <>
@@ -35,21 +87,8 @@ export default function Home() {
         id="musicPlayer"
         controls
         className="hidden"
-        onTimeUpdate={() => {
-          // console.log(musicPlayer.current.currentTime);
-        }}
       ></audio>
-
-      <div className="container h-screen overflow-hidden">
-        <div className={`absolute top-0 left-0 container h-screen transition-all duration-500 
-        ${!isHome && 'opacity-0 -z-10'}`}>
-          <MusicHome setIsHome={setIsHome} musicPlayer={musicPlayer} />
-        </div>
-        <div className={`absolute top-0 left-0 container h-screen transition-all duration-500 
-        ${isHome && 'opacity-0 -z-10'}`}>
-          <MusicDetail setIsHome={setIsHome} musicPlayer={musicPlayer} />
-        </div>
-      </div>
+      {mainView}
     </>
   );
 }

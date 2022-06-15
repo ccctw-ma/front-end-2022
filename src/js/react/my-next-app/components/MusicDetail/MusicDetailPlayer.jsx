@@ -103,9 +103,9 @@ export default function MusicPlay({ musicPlayer }) {
         console.log(musicPlayer.current.duration);
         setCurrentTime(musicPlayer.current.currentTime);
         setDuration(musicPlayer.current.duration);
-        musicPlayer.current.ontimeupdate = () => {
-            setCurrentTime(musicPlayer.current.currentTime);
-        }
+        // musicPlayer.current.ontimeupdate = () => {
+        //     setCurrentTime(musicPlayer.current.currentTime);
+        // }
         musicPlayer.current.onended = () => {
             setCurMusicPlay(pre => {
                 return {
@@ -123,25 +123,12 @@ export default function MusicPlay({ musicPlayer }) {
 
     //播放与暂停
     const handlePlay = () => {
-        console.log(curMusicPlay.isPlay);
-        console.log(musicPlayer.current.duration);
-        if (curMusicPlay.isPlay) {
-            setCurMusicPlay(pre => {
-                return {
-                    ...pre,
-                    isPlay: false
-                }
-            })
-            musicPlayer.current.pause();
-        } else {
-            setCurMusicPlay(pre => {
-                return {
-                    ...pre,
-                    isPlay: true
-                }
-            })
-            musicPlayer.current.play();
-        }
+        setCurMusicPlay(pre=>{
+            return {
+                ...pre,
+                isPlay: !curMusicPlay.isPlay
+            }
+        });
     };
 
     //播放上一首
@@ -153,14 +140,14 @@ export default function MusicPlay({ musicPlayer }) {
         <div className="flex flex-col w-full ">
             <div className="flex flex-row justify-around items-center space-x-4 px-4 mb-1">
                 <div className="block text-white text-xs">
-                    {timeFormatter(currentTime)}
+                    {timeFormatter(curMusicPlay.currentTime)}
                 </div>
 
                 <div className="flex-1">
                     <Slider
                         defaultValue={0}
-                        value={currentTime}
-                        max={~~duration}
+                        value={curMusicPlay.currentTime}
+                        max={~~curMusicPlay.duration}
                         tipFormatter={timeFormatter}
                         onChange={handleCurrentTimeChange}
                         style={{ width: "100%" }}
@@ -169,7 +156,7 @@ export default function MusicPlay({ musicPlayer }) {
 
 
                 <div className="block text-white text-xs">
-                    {timeFormatter(duration)}
+                    {timeFormatter(curMusicPlay.duration)}
                 </div>
             </div>
             <div className="flex flex-row items-center justify-center mb-4 space-x-4">

@@ -1,7 +1,7 @@
 /*
  * @Author: msc
  * @Date: 2022-05-02 16:32:17
- * @LastEditTime: 2022-06-12 22:42:01
+ * @LastEditTime: 2022-06-13 20:56:22
  * @LastEditors: msc
  * @Description: 界面的header
  */
@@ -15,7 +15,7 @@ import { musicFormatter } from "../../util/music";
 
 export default function MusicHomeHeader() {
 
-  const [searchStr, setSearchStr] = useState("周杰伦");
+  const [searchStr, setSearchStr] = useState("王心凌");
   const setkeyWords = useSetRecoilState(keyWordsState);
   const setMusicList = useSetRecoilState(musicListState);
 
@@ -57,7 +57,7 @@ export default function MusicHomeHeader() {
           <input
             className="w-full h-8 rounded-lg border border-solid border-slate-400 pl-2"
             type="text"
-            placeholder="周杰伦"
+            placeholder="王心凌"
             onChange={(e) => {
               setSearchStr(e.target.value)
             }}
