@@ -1,7 +1,7 @@
 /**
  * @Author: msc
  * @Date: 2022-05-03 10:50:32
- * @LastEditTime: 2022-06-14 16:44:25
+ * @LastEditTime: 2022-06-16 23:17:47
  * @LastEditors: msc
  * @Description: 
  */
@@ -9,7 +9,7 @@
 
 
 
-import requestBack from "../../../util/requestBack";
+import miguRequest from "../../../util/miguRequest";
 
 export default async function handler(req, res) {
 
@@ -29,7 +29,7 @@ export default async function handler(req, res) {
       lyric: 7,
     };
 
-    const data = await requestBack(
+    const data = await miguRequest(
       "https://m.music.migu.cn/migu/remoting/scr_search_tag",
       "get",
       {

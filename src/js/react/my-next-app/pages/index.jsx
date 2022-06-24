@@ -16,12 +16,12 @@ export default function Home() {
 
   //主要显示界面
   const mainContent = (
-    <div className="container h-screen overflow-hidden">
-      <div className={`absolute top-0 left-0 container h-screen transition-all duration-500 
+    <div className="relative container h-screen overflow-hidden lg:max-w-screen-lg lg:mx-auto">
+      <div className={`absolute top-0 left-0 container h-screen transition-all duration-500 overflow-hidden 
       ${!isHome && 'opacity-0 -z-10'}`}>
         <MusicHome setIsHome={setIsHome} musicPlayer={musicPlayer} />
       </div>
-      <div className={`absolute top-0 left-0 container h-screen transition-all duration-500 
+      <div className={`absolute top-0 left-0 container h-screen transition-all duration-500 overflow-hidden 
       ${isHome && 'opacity-0 -z-10'}`}>
         <MusicDetail setIsHome={setIsHome} musicPlayer={musicPlayer} />
       </div>
@@ -36,7 +36,7 @@ export default function Home() {
     // musicPlayer.current.focus();
     // musicPlayer.current.play();
     musicPlayer.current.ontimeupdate = (e) => {
-    
+
       setCurMusicPlay(pre => {
         return {
           ...pre,
@@ -51,24 +51,39 @@ export default function Home() {
 
   useEffect(() => {
     console.log('切换显示界面', isHome);
+    console.log(musicPlayer);
     setMainView(mainContent)
   }, [isHome]);
 
   useEffect(() => {
     console.log('当前选中的音乐', curMusic);
+
+    //切歌原来的歌曲先暂停， 然后等音乐播放需要的组件都加载好后再开始播放
+    musicPlayer.current.pause();
+    // 切歌是默认播放
+    let play = true;
+    //没有播放链接
+
     if (!curMusic._musicUrl) {
-      musicPlayer.current.pause();
+      play = false;
     } else {
-      musicPlayer.current.currentTime = 0;
-      musicPlayer.current.play();
-      console.log(musicPlayer);
+      play = true;
     }
+    setTimeout(() => {
+      setCurMusicPlay(pre => {
+        return {
+          ...pre,
+          isPlay: play
+        }
+      })
+      console.log("切歌完后的音乐播放器状态", musicPlayer);
+    }, 200);
   }, [curMusic])
 
   //全局的控制音乐播放器的状态
   useEffect(() => {
-    console.log(curMusicPlay);
-    console.log(musicPlayer);
+    // console.log(curMusicPlay);
+    // console.log(musicPlayer);
     //判断是否播放
     if (curMusicPlay.isPlay) {
       musicPlayer.current.play();
@@ -86,6 +101,7 @@ export default function Home() {
         src={curMusic._musicUrl ?? null}
         id="musicPlayer"
         controls
+        autoPlay={true}
         className="hidden"
       ></audio>
       {mainView}

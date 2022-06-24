@@ -1,7 +1,7 @@
 /**
  * @Author: msc
  * @Date: 2022-06-07 14:13:06
- * @LastEditTime: 2022-06-08 10:19:53
+ * @LastEditTime: 2022-06-20 15:32:59
  * @LastEditors: msc
  * @Description: 
  */
@@ -239,7 +239,7 @@ function ajax() {
 // debounce 防抖
 function debounce(fn, delay) {
     if (typeof fn !== 'function') {
-        throw new TypeError('fn不是函数');
+        throw new TypeError("fn不是函数");
     }
     let timer = null;
     return function () {
