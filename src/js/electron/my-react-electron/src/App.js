@@ -1,8 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./App.css";
+import { Link } from "react-router-dom";
 function App() {
-
   console.log(window.myAPI.desktop);
 
   return (
@@ -18,9 +17,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
-          Hello world
+          Learn React Hello world
         </a>
+        <Link to={"home"}>To Home</Link>
       </header>
     </div>
   );

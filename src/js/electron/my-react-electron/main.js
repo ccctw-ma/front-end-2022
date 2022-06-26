@@ -1,7 +1,7 @@
 /**
  * @Author: msc
  * @Date: 2022-03-27 17:45:22
- * @LastEditTime: 2022-03-28 11:28:44
+ * @LastEditTime: 2022-06-26 20:41:21
  * @LastEditors: msc
  * @Description: 
  */
@@ -17,8 +17,8 @@ let mainWindow
 function createWindow() {
     //创建浏览器窗口,宽高自定义具体大小你开心就好
     mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1024,
+        height: 640,
         webPreferences: {
             preload: path.join(__dirname, './src/utils/preload.js')
         }
@@ -36,7 +36,7 @@ function createWindow() {
     mainWindow.loadURL('http://localhost:3000/');
 
     // 打开开发者工具，默认不打开
-    // mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
 
     // 关闭window时触发下列事件.
     mainWindow.on('closed', function () {

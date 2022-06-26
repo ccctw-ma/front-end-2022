@@ -84,3 +84,6 @@ if( 'toString' in o){
     console.log(o.hasOwnProperty('toString'));
 }
 
+
+let arr = process.env.Path.split(";");
+console.log(arr);
