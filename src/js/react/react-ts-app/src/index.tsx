@@ -1,16 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import Router from './routes/router';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RecoilRoot } from "recoil";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import Router from "./routes/router";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    {Router}
-  </React.StrictMode>
+  // <React.StrictMode>
+  <RecoilRoot>{Router}</RecoilRoot>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

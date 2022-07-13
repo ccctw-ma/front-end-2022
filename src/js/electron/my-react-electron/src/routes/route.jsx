@@ -1,7 +1,7 @@
 /*
  * @Author: msc
  * @Date: 2022-03-28 10:27:33
- * @LastEditTime: 2022-06-25 01:13:35
+ * @LastEditTime: 2022-07-12 00:12:59
  * @LastEditors: msc
  * @Description:
  */
@@ -14,9 +14,8 @@ const Router = (
   <HashRouter>
     <Routes>
       <Route path="/" element={<App />}>
-
+        <Route  index element={<Home />} />
       </Route>
-      <Route path="home" element={<Home/>} />
     </Routes>
   </HashRouter>
 );

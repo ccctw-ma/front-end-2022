@@ -13,6 +13,11 @@ import CssTest from "../pages/cssTest";
 import Loading from "../pages/cssTest/loading";
 import ReactTest from "../pages/reactTest";
 import Hooks from "../pages/reactTest/Hooks";
+import Recoil from "../pages/reactTest/recoil";
+
+// const route = <Route path="/" element={<App></App>}></Route>;
+
+// console.log(route);
 
 const Router = (
   <BrowserRouter>
@@ -23,6 +28,7 @@ const Router = (
       </Route>
       <Route path="reactTest" element={<ReactTest></ReactTest>}>
         <Route path="hooks" element={<Hooks></Hooks>}></Route>
+        <Route path="recoil" element={<Recoil></Recoil>}></Route>
       </Route>
     </Routes>
   </BrowserRouter>

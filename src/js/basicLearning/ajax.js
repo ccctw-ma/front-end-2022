@@ -61,3 +61,4 @@ var url = 'http://api.alice.com/cors';
 xhr.open('PUT', url, true);
 xhr.setRequestHeader('X-Custom-Header', 'value');
 xhr.send();
+

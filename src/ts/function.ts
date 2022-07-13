@@ -4,7 +4,7 @@
 /*
  * @Author: msc
  * @Date: 2022-03-02 20:53:06
- * @LastEditTime: 2022-03-03 10:00:36
+ * @LastEditTime: 2022-07-10 21:24:24
  * @LastEditors: msc
  * @Description: function
  */
@@ -30,7 +30,7 @@ function buildName2(firstName: string, ...restName: string[]) {
     return firstName + " " + restName.join(" ");
 }
 let employeeName = buildName2("Joseph", "Samuel", "Lucas", "MacKinzie");
-console.log(employeeName);
+// console.log(employeeName);
 
 
 /**
@@ -61,6 +61,7 @@ let deck: Deck = {
 
 let cardPicker = deck.createCardPicker();
 let pickedCard = cardPicker();
+console.log(pickedCard);
 
 // alert("card: " + pickedCard.card + " of " + pickedCard.suit);
 
@@ -76,4 +77,9 @@ interface UIElement {
 // }
 // let h = new Handler();
 // uiElement.addClickListener(h.onClickBad); // error!
+
+
+console.log([1, 2, 3].slice(0, 2));
+
+
 

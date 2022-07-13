@@ -1,7 +1,7 @@
 /**
  * @Author: msc
  * @Date: 2022-06-25 15:55:18
- * @LastEditTime: 2022-06-25 17:46:40
+ * @LastEditTime: 2022-06-27 00:55:28
  * @LastEditors: msc
  * @Description:
  */
@@ -91,3 +91,7 @@ console.log(1..__proto__ === Number.prototype);
 console.log(Number.prototype);
 console.log(n instanceof Number);
 console.log(Object.prototype.toString.call(new Number()));
+console.log(Object.prototype.toString.call());
+
+console.log(typeof Promise.resolve().then);
+console.log(void 0 === undefined);

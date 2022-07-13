@@ -3,7 +3,7 @@
  * via extended background-position
  */
 
- div {
+ .box{
 	background: url(http://csssecrets.io/images/code-pirate.svg)
 	            no-repeat bottom right #58a;
 	background-origin: content-box;
@@ -14,4 +14,13 @@
 	padding: 10px;
 	color: white;
 	font: 100%/1 sans-serif;
+}
+
+.triangle{
+
+	width: 0;
+	height: 0;
+	border-bottom-width: 50px;
+	border-bottom-style: solid;
+	border-bottom-color: blue;
 }

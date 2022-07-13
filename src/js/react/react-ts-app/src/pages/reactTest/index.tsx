@@ -1,7 +1,7 @@
 /*
  * @Author: msc
  * @Date: 2022-06-24 10:40:36
- * @LastEditTime: 2022-06-24 11:22:12
+ * @LastEditTime: 2022-07-12 20:58:41
  * @LastEditors: msc
  * @Description:
  */
@@ -15,9 +15,10 @@ export default function Index() {
       <h1>THis is my React</h1>
       <div>
         <Link to={"hooks"}>to Hooks</Link>
+        <Link to={"recoil"}> to Recoil</Link>
       </div>
       <div>
-        <Outlet></Outlet>
+        <Outlet />
       </div>
     </div>
   );
