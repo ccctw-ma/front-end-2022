@@ -1,0 +1,49 @@
+<!--
+ * @Author: msc
+ * @Date: 2022-06-24 22:11:04
+ * @LastEditTime: 2022-06-24 22:42:15
+ * @LastEditors: msc
+ * @Description: 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1>Fuck you cache</h1>
+
+        <Button id="btn">click me</Button>
+    </div>
+</body>
+<!-- <script src="./static/test.js"></script> -->
+<script>
+    let btn = document.getElementById('btn');
+    // console.log(btn.innerHTML);  
+    btn.addEventListener('click', (e) => {
+        console.log('click');
+        // console.log(e);
+        let xhr = new XMLHttpRequest();
+        xhr.open('get', './cache?name=fuck you nmsl');
+        xhr.onreadystatechange = () => {
+
+            console.log(xhr.readyState);
+            if (xhr.readyState === 4) {
+                // console.log(xhr);
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+        xhr.send();
+    })
+</script>
+
+</html>

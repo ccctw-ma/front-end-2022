@@ -1,104 +1,21 @@
-// 进行引用
-const dayjs = require('dayjs')
+const lyrics =
+  "[ti:不哭]\r\n[ar:王心凌]\r\n[00:00.00]歌曲名 不哭 歌手名 王心凌\r\n[00:02.00]作词：吴本伟\r\n[00:05.00]作曲：秀智\r\n[00:21.71]起初相信爱的路\r\n[00:23.91]终点是指向幸福\r\n[00:27.47]才会一而再的选择让步\r\n[00:31.42]太固执而盲目忘了停下来\r\n[00:35.95]心疼自己的无助\r\n[00:42.53]无辜你拿手演出\r\n[00:44.78]终于我可以麻木\r\n[00:48.28]从这里分割出两个国度\r\n[00:51.68]挥霍多少时间\r\n[00:54.88]折磨多少痛苦\r\n[00:57.48]才累积出的领悟\r\n[01:02.93]忍住不哭我要忍住不哭\r\n[01:08.29]望向天空不让眼泪流出\r\n[01:12.44]抬头看进云深处\r\n[01:17.01]等待那日出把故事结束\r\n[01:21.25]把从前一笔消除\r\n[01:23.85]忍住不哭我要忍住不哭\r\n[01:29.10]不能认输\r\n[01:31.01]因为我相信彩虹总跟着薄雾\r\n[01:36.69]会带来幸福\r\n[01:39.29]在下一个叉路\r\n[01:42.09]陪我跳全新的舞\r\n[02:05.99]起初相信爱的路\r\n[02:08.24]终点是指向幸福\r\n[02:11.79]才会一而再的选择让步\r\n[02:15.80]太固执而盲目忘了停下来\r\n[02:20.30]心疼自己的无助\r\n[02:26.90]无辜你拿手演出\r\n[02:29.10]终于我可以麻木\r\n[02:32.70]从这里分割出两个国度\r\n[02:36.00]挥霍多少时间\r\n[02:39.25]折磨多少痛苦\r\n[02:41.93]才累积出的领悟\r\n[02:47.29]忍住不哭我要忍住不哭\r\n[02:52.59]望向天空不让眼泪流出\r\n[02:56.79]抬头看进云深处\r\n[03:01.39]等待那日出把故事结束\r\n[03:05.54]把从前一笔消除\r\n[03:08.19]忍住不哭我要忍住不哭\r\n[03:13.45]不能认输\r\n[03:15.40]因为我相信彩虹总跟着薄雾\r\n[03:20.97]会带来幸福\r\n[03:23.62]在下一个叉路\r\n[03:26.44]陪我跳全新的舞\r\n[03:38.90]啦\r\n";
 
-// 引用的dayjs实例是一个函数返回的实例，可以直接使用。
-// 获取到当前时间，格式化（年-月-日 时-分-秒）
+let sentencs = lyrics.split("\r\n");
+// console.log(sentencs);
+let res = [];
+sentencs.forEach((s) => {
+  if (s.length) {
+    let temp = /\[(\d+):(\d+)\.(\d+)](.*)/.exec(s);
+    if(temp){
+        res.push({
+            minute: temp[1],
+            second: temp[2],
+            millisecond: temp[3],
+            sentence: temp[4]
+        })   
+    }
+  }
+});
 
-// 初始化其他时间,格式化（年-月-日 时-分-秒）
-let date = new Date();
-let currDate = dayjs(date).format('YYYY-MM-DD HH:mm:ss');
-let a = dayjs(date)
-console.log(a.valueOf())
-console.log(a.format('YYYY年MM月DD日'))
-console.log(a.format('MM月-DD日'))
-console.log(dayjs(a.format('YYYY-MM-DD')).toDate())
-
-
-console.log(dayjs('2022-1-5').diff(dayjs('2022-1-4'), 'day') + 1)
-
-data = {
-    title: "杠铃后蹲-箱式",
-    frequency: '1',
-    rest: '1',
-    representative: '1',
-    load: '2',
-    trainTarget: '力量',
-    rhythmE: '1',
-    rhythmP: '2',
-    rhythmC: '3',
-    remarks: '多读书、多看报、少吃零食多睡觉',
-    useElasticBand: true
-}
-
-// let arr = [1, 2, 3, 4, 5]
-// console.log(arr.splice(3))
-// console.log(arr)
-
-
-let material = {
-    "strength": [
-        {
-            "_id": "v001",
-            "name": "杠铃后蹲-箱式",
-            "coverSrc": "/app-material-video/cover/13179540-3cf8-4e80-8436-e2b7be04a80d.jpeg",
-            "videoSrc": "/app-material-video/resourceType/c744da69-4b42-4402-a1dd-f54d5d8652f1.mp4",
-            "content": "这里是文字说明",
-            "type": "strength"
-        },
-        {
-            "_id": "v002",
-            "name": "杠铃后蹲-22",
-            "coverSrc": "/app-material-video/cover/13179540-3cf8-4e80-8436-e2b7be04a80d.jpeg",
-            "videoSrc": "/app-material-video/resourceType/c744da69-4b42-4402-a1dd-f54d5d8652f1.mp4",
-            "content": "这里是文字说明",
-            "type": "strength"
-        }
-    ]
-}
-
-
-// Object.keys(material).forEach(key=>{
-//     console.log(material[key])
-// })
-
-Object.entries(material).forEach(e => {
-    console.log(e)
-})
-
-let arr = [1, 2, 3]
-arr.push(...[4, 5, 6])
-console.log(arr)
-console.log(arr.map(e => {
-    if (e >= 3) return e
-}))
-
-let o = {
-    id: '123',
-    title: '334'
-}
-
-let c = {
-    ...o,
-    ...{
-        id: '456',
-        name: 'szh',
-        age: 23
-    },
-}
-console.log(c)
-
-
-// let aa = [0]
-// console.log(!!aa)
-// if (aa) {
-//     console.log(aa == true)
-// } else {
-//     console.log(aa)
-// }
-
-// console.log(dayjs(dayjs(new Date()).format("YYYY-MM-DD")).add(1, "day").toISOString());
-
-console.log(dayjs(new Date()).year());
-
-
-console.log(dayjs("2022-11-30").diff(dayjs("2021-11-30"),'year'))
+console.log(res);

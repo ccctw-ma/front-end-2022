@@ -1,11 +1,11 @@
 /**
  * @Author: msc
  * @Date: 2022-06-14 15:37:42
- * @LastEditTime: 2022-06-15 14:45:46
+ * @LastEditTime: 2022-06-16 23:16:57
  * @LastEditors: msc
  * @Description:
  */
-import requestBack from "../../../util/requestBack";
+import miguReqest from "../../../util/miguRequest";
 
 export default async function handler(req, res) {
   try {
@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       throw "cid呢???";
     }
 
-    const data = await requestBack(
+    const data = await miguReqest(
       `http://music.migu.cn/v3/api/music/audioPlayer/getLyric?copyrightId=${cid}`
     );
     console.log(data);

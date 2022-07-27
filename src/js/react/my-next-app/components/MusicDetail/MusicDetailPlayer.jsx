@@ -48,6 +48,12 @@ import {
     CaretRightFilled,
     PauseOutlined,
     SoundOutlined,
+    HeartOutlined,
+    HeartFilled,
+    MoreOutlined,
+    MessageOutlined,
+    DownloadOutlined,
+    UserOutlined
 } from "@ant-design/icons";
 import {
     OneLoopIcon,
@@ -62,13 +68,15 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import { keyWordsState, curMusicState, musicListState, curMusicPlayState } from "../../store";
 
 
-export default function MusicPlay({ musicPlayer }) {
+export default function MusicDetailPlayer({ musicPlayer, setShowComment }) {
 
     const curMusic = useRecoilValue(curMusicState), setCurMusic = useSetRecoilState(curMusicState);
     const curMusicPlay = useRecoilValue(curMusicPlayState), setCurMusicPlay = useSetRecoilState(curMusicPlayState);
     const [volume, setVolume] = useState(100);
     // 0 -> 单曲循环 1->歌单循环 2-> 顺序播放 3-> 随机播放
     const [order, setOrder] = useState(0);
+    const [love, setLove] = useState(false);
+
     //不同播放顺序对应的图标
     const orderIconMap = {
         0: <OneLoopIcon />,
@@ -116,6 +124,62 @@ export default function MusicPlay({ musicPlayer }) {
 
     return (
         <div className="flex flex-col w-full ">
+            <div className="w-full flex flex-row text-white justify-center items-center space-x-4 ">
+                <Button
+                    type="text"
+                    shape="circle"
+                    icon={love ? <HeartFilled /> : <HeartOutlined />}
+                    style={{ color: love ? "red" : "white" }}
+                    size={"large"}
+                    onClick={() => {
+                        setLove(!love)
+                    }}
+                />
+                <Button
+                    type="text"
+                    shape="circle"
+                    icon={<UserOutlined />}
+                    style={{ color: "white" }}
+                    size="large"
+                    onClick={() => {
+                        console.log("正在开发中");
+                    }}
+                />
+                <Button
+                    type="text"
+                    shape="circle"
+                    icon={<DownloadOutlined />}
+                    style={{ color: "white" }}
+                    size={"large"}
+                    onClick={() => {
+                        console.log("正在开发中");
+                    }}
+                />
+
+
+                <Button
+                    type="text"
+                    shape="circle"
+                    icon={<MessageOutlined />}
+                    style={{ color: "white" }}
+                    size={"large"}
+                    onClick={() => {
+                        setShowComment(true);
+                    }}
+                />
+
+                <Button
+                    type="text"
+                    shape="circle"
+                    icon={<MoreOutlined />}
+                    style={{ color: "white" }}
+                    size={"large"}
+                    onClick={() => {
+                        console.log("正在开发中");
+                    }}
+                />
+
+            </div>
             <div className="flex flex-row justify-around items-center space-x-4 px-4 mb-1">
                 <div className="block text-white text-xs">
                     {timeFormatter(curMusicPlay.currentTime)}

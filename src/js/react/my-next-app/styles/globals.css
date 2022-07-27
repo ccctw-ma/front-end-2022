@@ -21,3 +21,10 @@ a {
   box-sizing: border-box;
 }
 
+/* 这是滚动轴透明 */
+::-webkit-scrollbar{
+  height: 0;
+  width: 0;
+  color: transparent;
+}
+

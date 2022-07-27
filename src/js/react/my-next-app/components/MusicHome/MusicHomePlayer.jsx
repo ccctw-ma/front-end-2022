@@ -1,7 +1,7 @@
 /*
  * @Author: msc
  * @Date: 2022-05-02 17:22:30
- * @LastEditTime: 2022-06-15 17:15:51
+ * @LastEditTime: 2022-06-20 22:51:17
  * @LastEditors: msc
  * @Description: 
  */
@@ -34,7 +34,7 @@ export default function MusicHomePlayer({ setIsHome, musicPlayer }) {
             <div className="w-full h-14 flex flex-row items-center bg-white">
                 <div className="w-2/12" onClick={() => setIsHome(false)}>
                     <img
-                        src={curMusic._coverUrl} alt="图片"
+                        src={curMusic._coverUrl || "http://mms0.baidu.com/it/u=2999215938,1867739424&fm=253&app=138&f=JPEG&fmt=auto&q=75?w=500&h=500"} alt="图片"
                         className={`${styles.musicPlaySpin} ${!curMusicPlay.isPlay && styles.musicPlaySpinPause} 
                         absolute left-2 bottom-2 block w-14 h-14 object-center rounded-full`} />
                 </div>

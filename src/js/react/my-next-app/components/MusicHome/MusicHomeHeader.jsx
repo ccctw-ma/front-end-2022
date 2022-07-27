@@ -1,7 +1,7 @@
 /*
  * @Author: msc
  * @Date: 2022-05-02 16:32:17
- * @LastEditTime: 2022-06-13 20:56:22
+ * @LastEditTime: 2022-06-23 10:35:18
  * @LastEditors: msc
  * @Description: 界面的header
  */
@@ -15,32 +15,15 @@ import { musicFormatter } from "../../util/music";
 
 export default function MusicHomeHeader() {
 
-  const [searchStr, setSearchStr] = useState("王心凌");
+  const [searchStr, setSearchStr] = useState("许嵩");
   const setkeyWords = useSetRecoilState(keyWordsState);
   const setMusicList = useSetRecoilState(musicListState);
 
 
-  const handleSearchMusics = async () => {
+  const handleSearchMusics = () => {
     if (searchStr.length !== 0) {
       console.log(searchStr);
       setkeyWords(searchStr);
-      const data = await API.GET(`/api/migu/search?keyWords=${searchStr}&page=${1}`);
-      if (data.status === 200) {
-        console.log(data);
-
-        setMusicList((old) => {
-          return {
-            ...old,
-            migu: {
-              total: data.body?.pgt,
-              songs: musicFormatter(data.body?.musics, "migu")
-            }
-          }
-        })
-
-      } else {
-        console.log(data);
-      }
     }
   };
 
@@ -57,7 +40,7 @@ export default function MusicHomeHeader() {
           <input
             className="w-full h-8 rounded-lg border border-solid border-slate-400 pl-2"
             type="text"
-            placeholder="王心凌"
+            placeholder="许嵩"
             onChange={(e) => {
               setSearchStr(e.target.value)
             }}
