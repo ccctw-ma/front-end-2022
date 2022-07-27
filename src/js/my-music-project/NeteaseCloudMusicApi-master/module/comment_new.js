@@ -1,4 +1,4 @@
-const { resourceTypeMap } = require('../util/config.json')
+const {resourceTypeMap} = require('../util/config.json')
 // 评论
 
 module.exports = (query, request) => {
@@ -33,6 +33,7 @@ module.exports = (query, request) => {
     cursor: cursor,
     sortType: sortType, //99:按推荐排序,2:按热度排序,3:按时间排序
   }
+  console.log(data)
   return request(
     'POST',
     `https://music.163.com/api/v2/resource/comments`,
