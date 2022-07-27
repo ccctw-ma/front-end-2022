@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Add React in One Minute</title>
+</head>
+
+<body>
+
+  <h2>Add React in One Minute</h2>
+  <p>This page demonstrates using React with no build tooling.</p>
+  <p>React is loaded as a script tag.</p>
+
+  <!-- We will put our React component inside this div. -->
+  <div id="like_button_container"></div>
+  <div id="test"></div>
+
+
+  <div id="root"></div>
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <!-- <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script> -->
+  <!-- <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script> -->
+
+  <!-- Load our React component. -->
+  <!-- <script src="like_button.js"></script> -->
+  <script type="text/babel">
+    /** @jsx hyperScript **/
+    const my = <div id="name">Hello, world!</div>
+      // ReactDOM.render(
+      //         my,
+      //   document.getElementById('example')
+      // );
+
+      
+    console.log(my);
+
+      var realNode = render(my)
+
+      //! 放到页面上的div下，作为虚拟dom的root节点
+      var oDivs = document.getElementById("root");
+      $("#example").html(realNode);
+
+      function hyperScript(nodeName , attributes , ...args){
+        let children =  args.length ? [].concat(...args) : [];
+        return {nodeName,attributes,children  }
+      }
+
+      function render( vnode ){
+        //如果是文本，直接返回
+        if(vnode.split){
+          return document.createTextNode( vnode )
+        }
+        //是一个虚拟DOM
+        let node = document.createElement( vnode.nodeName );
+        //get属性
+        let attrs = vnode.attrbutes || {} ;
+        //给节点加上属性
+        Object.keys( attrs ).forEach( item => node.setAttribute( item , attrs[item] ) );
+        //递归处理子元素，children
+        ( vnode.children || [] ).forEach( item => node.appendChild( render(item) ) );
+        //返回node 
+        return node;
+      }
+
+   
+  </script>
+  <!-- <script type="text/javascript">
+        const VDOM = React.createElement('h1', {id:'title'}, React.createElement('span',{},'hello React'))
+        console.dir(VDOM);
+        console.dir(document.getElementById('test'));
+        ReactDOM.render(VDOM,document.getElementById('test'))
+    </script> -->
+</body>
+
+</html>
