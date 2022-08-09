@@ -15,17 +15,17 @@ import ReactTest from "../pages/reactTest";
 import Hooks from "../pages/reactTest/Hooks";
 import Recoil from "../pages/reactTest/recoil";
 
-import Modules from "../pages/modules";
-import ExpandingCards from "../pages/modules/expandingCards";
-import ProgressSteps from "../pages/modules/progressSteps/progressSteps";
-import RotatingNavigation from "../pages/modules/rotatingNavigation";
-import HiddenSearch from "../pages/modules/hiddenSearch";
-import BlurryLoading from "../pages/modules/blurryLoading";
-import ScrollAnimation from "../pages/modules/scrollAnimation";
-import SplitLandingPage from "../pages/modules/splitLandingPage";
-import FormInputWave from "../pages/modules/formInputWave";
-import SoundBoard from "../pages/modules/soundBoard";
-// console.log(process.env.NODE_ENV);
+const modules = require.context("../pages/modules", true, /\.tsx$/);
+
+//根据pages里的文件自动导入路由
+const moduleComponents = modules.keys().map((key: string): any => {
+    // console.log(key);
+    const matchRes = key.match(/\/(\w+)\.tsx$/);
+    // console.log(matchRes);
+    const moduleName = matchRes![1];
+    const E = modules(key).default;
+    return <Route path={moduleName} element={<E />} key={key} />;
+});
 
 const Router = (
     <BrowserRouter>
@@ -38,18 +38,19 @@ const Router = (
                 <Route path="hooks" element={<Hooks></Hooks>}></Route>
                 <Route path="recoil" element={<Recoil></Recoil>}></Route>
             </Route>
-            <Route path="modules" element={<Modules></Modules>}></Route>
-            <Route path="expandingCards" element={<ExpandingCards />}></Route>
-            <Route path="progressSteps" element={<ProgressSteps />} />
-            <Route path="rotatingNavigation" element={<RotatingNavigation />} />
-            <Route path="hiddenSearch" element={<HiddenSearch />} />
-            <Route path="blurryLoading" element={<BlurryLoading />} />
-            <Route path="scrollAnimation" element={<ScrollAnimation />} />
-            <Route path="splitLandingPage" element={<SplitLandingPage />} />
-            <Route path="formInputWave" element={<FormInputWave />} />
-            <Route path="soundBoard" element={<SoundBoard />} />
+            {moduleComponents}
         </Routes>
     </BrowserRouter>
 );
 
 export default Router;
+//    {/* <Route path="modules" element={<Modules></Modules>}></Route>
+//     <Route path="expandingCards" element={<ExpandingCards />}></Route>
+//     <Route path="progressSteps" element={<ProgressSteps />} />
+//     <Route path="rotatingNavigation" element={<RotatingNavigation />} />
+//     <Route path="hiddenSearch" element={<HiddenSearch />} />
+//     <Route path="blurryLoading" element={<BlurryLoading />} />
+//     <Route path="scrollAnimation" element={<ScrollAnimation />} />
+//     <Route path="splitLandingPage" element={<SplitLandingPage />} />
+//     <Route path="formInputWave" element={<FormInputWave />} />
+//     <Route path="soundBoard" element={<SoundBoard />} /> */}

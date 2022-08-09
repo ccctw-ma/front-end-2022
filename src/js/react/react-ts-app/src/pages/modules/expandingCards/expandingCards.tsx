@@ -1,7 +1,7 @@
 /*
  * @Author: msc
  * @Date: 2022-07-19 21:39:04
- * @LastEditTime: 2022-07-20 21:07:59
+ * @LastEditTime: 2022-07-28 00:09:36
  * @LastEditors: msc
  * @Description:
  */
@@ -14,7 +14,7 @@ interface Data {
   text: string;
 }
 
-console.log(styles);
+// console.log(styles);
 
 
 export default function ExpandingCards() {

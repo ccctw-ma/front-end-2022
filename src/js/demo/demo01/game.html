@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Spaceships</title>
+        <meta name="description" content="Spaceship game for assignment1">
+        <meta name="keywords" content="javascript, game, spaceships">
+        <meta name="author" content="WP">
+        
+        <meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
+        
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet"> 
+
+        <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <header>
+            <h1>Spaceships</h1>
+        </header>
+        <main>
+            <div id="container">
+                <div id="instructions"> 
+                    <!-- put instructions here-->
+                    <!-- change it later in js -->
+                    <!-- should be different for setup and play states -->
+                </div>
+
+                <div id="grid">
+                    <!-- grid tiles here-->
+                </div>
+
+                <div id="right_panel">
+                    <div id="info">
+                        
+                        <!-- turn counter -->
+                        <!-- number of active mines -->
+                        <!-- etc -->
+                    </div>
+                    <div id="error_messages"> 
+                        <!-- for example when the move is illegal -->
+                    </div>
+                    <!-- not sure if the button should have its own div -->
+                    <button id="endButton" onclick="buttonClick()"> </button>
+                </div>
+
+            </div>
+            
+        </main>
+        <script src="game.js"></script>
+    </body>
+</html>

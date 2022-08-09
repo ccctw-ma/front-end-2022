@@ -1,64 +1,24 @@
 import logo from "./logo.svg";
-import "./App.css";
+import styles from "./styles/App.module.css";
 import { Link, Outlet } from "react-router-dom";
+import HeadBar from "./components/headBar";
 function App() {
-  return (
-    <div className="w-screen h-screen">
-      <header className="flex flex-row">
-        <div
-          onClick={() => {
-            window.myAPI.miniMizeWindow();
-          }}
-        >
-          最小化
+    return (
+        <div className={styles.App}>
+            <div id={styles.leftBar} className="bg-green-300">
+                leftbar
+            </div>
+            <div id={styles.headBar} className="bg-red-300">
+                <HeadBar />
+            </div>
+            <div id={styles.mainContent} className="bg-yellow-300">
+                mainContent
+            </div>
+            <div id={styles.musicBar} className="bg-purple-300">
+                musicBar
+            </div>
         </div>
-
-        <div
-          className=" text-2xl"
-          onClick={() => {
-            console.log(111);
-
-            window.myAPI.toggleMaxmize();
-          }}
-        >
-          最大化
-        </div>
-
-        <div
-          onClick={() => {
-            window.myAPI.closeWindow();
-          }}
-        >
-          关闭
-        </div>
-      </header>
-      <main>
-        <Link to={"home"}>To Home</Link>
-      </main>
-
-      <Link to={"/"}>Home</Link>
-
-      <Outlet />
-    </div>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React Hello world
-    //       233
-    //     </a>
-    //     <Link to={"home"}>To Home</Link>
-    //   </header>
-    // </div>
-  );
+    );
 }
 
 export default App;

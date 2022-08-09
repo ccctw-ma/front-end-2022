@@ -1,7 +1,7 @@
 /*
  * @Author: msc
  * @Date: 2022-02-22 23:38:10
- * @LastEditTime: 2022-02-23 00:35:54
+ * @LastEditTime: 2022-08-05 00:10:16
  * @LastEditors: msc
  * @Description: 接口
  */
@@ -125,4 +125,6 @@ let cc = getCounter();
 cc(10);
 cc.reset();
 cc.interval = 5.0
+
+
 

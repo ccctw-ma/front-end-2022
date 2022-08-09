@@ -1,0 +1,74 @@
+Requirements
+The JavaScript program implements a simple game that consists of three stages, setup, play  and end. During the play stage the game proceeds in rounds. The game is played on a grid with 5 x 5 cells. The game involves red pieces controlled by the user, black pieces controlled by your program, and blocks that are placed on the grid and do not move. There are up to 8 red pieces and up to 8 black pieces. Each piece has a number between 1 and 4 on it. There are at most 3 red pieces with the number 1, at most 2 red pieces with the number 2, at most 2 red pieces with the number 3, and at most 1 red piece with the number 4, the same for the black pieces.
+
+The game always starts in the setup stage and the setup stage consists of three rounds. During that stage the user is shown the grid and a button that allows the user to proceed to the next round of the setup stage. After three rounds have been completed, clicking on that button takes the game to the play stage.
+
+During the setup stage the user places objects on the grid, red pieces, black pieces, and blocks. No grid cell can contain more than one object and once an object has been placed on a cell it cannot be changed.
+
+In the first round of the setup stage, the user places an arbitrary number of blocks on the grid. The user does so by clicking on a cell and typing the letter "b".
+
+If the user types a character different to the letter "b", an error message should be shown and nothing is placed on the grid.
+If the user tries to change an object already on the grid, then an error message should be shown and nothing changes on the grid.
+In the second round of the setup stage, the user places up to 8 red pieces on the grid. The user does so by clicking on a cell and typing one of the numbers 1 to 4.
+
+If the user types a character that is not among the numbers 1 to 4, an error message should be shown and nothing is placed on the grid.
+If the user tries to place more pieces with a particular number than is allowed (e.g., the user tries to place three pieces with the number 2), an error message should be shown and nothing is placed on the grid.
+If the user tries to place more than 8 red pieces, then an error message should be shown and nothing is placed on the grid.
+If the user tries to proceed to the next round without placing any red piece on the grid, an error message should be shown and the game remains in the current round and stage.
+If the user tries to change an object already on the grid, then an error message should be shown and nothing changes on the grid.
+In the third round of the setup stage, the user places up to 8 black pieces on the grid. The user does so by clicking on a cell and typing one of the numbers 1 to 4. The same error conditions apply as for the second round, only with `red' replaced by `black'.
+
+If in the third round of the setup stage, the user clicks on the button for the next round, and there is at least one red piece and one black piece on the grid, then the game proceeds to the play stage.
+
+At the start and during the play stage, the user is again shown the grid, initially with all the objects that have been placed on the grid during the setup stage, plus additional status information: The number of the round currently played, the number of red pieces left on the grid, and the number of black pieces left on the grid. In addition, there must be the possibility for the user to end the play stage at any time, for example, via a button. For each piece it must be clearly visible what number it has.
+
+While in the play stage, the game proceeds in rounds, each round starts with the user's turn followed by the computer's turn. At the start of a round, the number of the round currently played is increased by one (the first round has the number 1), and the status information shown to the user is updated.
+
+During each turn, the user and the computer try to move one of their pieces. It might be the case that either the user or the computer do not have a piece left that they can move. This should be checked at the start of each turn and the game should proceed to the end stage if this case occurs.
+
+During his/her turn, the user attempts to move one of the red pieces horizontally or vertically on the grid by clicking on the piece (the piece becomes selected) and then typing one of four letters:
+
+"a" attempts to move the selected piece one grid cell to the left,
+"d" attempts to move the selected piece one grid cell to the right,
+"w" attempts to move the selected piece one grid cell up,
+"s" attempts to move the selected piece one grid cell down.
+If the user types any other character, then an error message should be shown and the user can type another character. If the attempted move would result in the selected piece ending up outside the grid, or on a cell occupied by a block, or on a cell occupied by a red piece, then the selected piece does not move, an error message should be shown and the user can move a different piece or the same piece in a different direction (i.e., the user's turn does not end). Otherwise, the attempted move is successful and the selected piece changes cells:
+
+If the cell to which the selected piece has moved was previously empty, then nothing special happens and the user's turn is over.
+If the selected piece ends up on a grid cell that contains a black piece, then one piece is eliminated as follows:
+if either the number of the red piece is greater than the number on the black piece or the number on the red piece is 1 and the number on the black piece is 4 (i.e., 4 > 3, 4 > 2, 4 > 1, 3 > 2, 3 > 1, 1 > 4) then the black piece is eliminated, else the red piece is eliminated. The number of red and black pieces is adjusted accordingly and the status information shown to the user is updated.
+Once the user has successfully moved exactly one of the red pieces that can move, the user's turn ends and the computer's turn starts.
+
+During the computer's turn your program attempts to move exactly one  black piece. Its aim is to eliminate all red pieces from the grid.
+
+Black pieces move in the same way as red pieces, that is, they can move horizontally and vertically but not  diagonally.
+Black pieces can also not `leave the grid' (e.g., a black piece in the left-most column of the grid cannot  move left and thereby end up in the right-most column of the grid.
+Black pieces cannot  move onto a cell containing a block and cannot  move onto a cell containing another black piece.
+Black pieces can move to empty cells and to cells containing a red piece. In the latter case, one piece is then eliminated as follows:
+if either the number on the black piece is greater than the number on the red piece or the number on the black piece is 1 and the number on the red piece is 4, then the red piece is eliminated, else the black piece is eliminated. The number of red and black pieces is adjusted accordingly and the status information shown to the user is updated.
+If there is a black piece and a red piece such that the black piece could move to the cell containing the red piece, then one black piece which satisfies this condition must move to a cell containing a red piece. However, if several pairs of black and red pieces satisfy this condition then the computer can choose which black piece moves to which red piece.
+Exactly one black piece must move if there is any black piece that can move.
+Once exactly one black piece that can move has moved, the computer's turn and the current round ends.
+
+The play stage ends if and only if one of the following conditions becomes true:
+
+the user ends the play stage (by pressing the button provided for that);
+there are no red pieces left that could move (this includes the case that there are no red pieces left at all);
+there are no black pieces left that could move (this includes the case that there are no black pieces left at all);
+Once the play stage has ended, the game is in the end  stage. In the end stage the program determines the outcome of the game. The outcome is a win for the user if there are no black pieces left on the grid; the outcome is a win for the computer if there are no red pieces left on the grid; otherwise, the outcome is a draw. The program should display a message indicating the outcome of the game and then stop. During the end  stage the program should not react to any user input or actions.
+
+
+Additional Requirements and Comments:
+
+The bulk of your JavaScript code should be in a JavaScript library called numbers.js. Before submitting your solution, you should create a copy of numbers.js  named numbers.pretty.js  in a directory other than your public_html  directory, say, your home directory. Then make the file numbers.js  indecipherable for humans using the command
+uglifyjs $HOME/numbers.pretty.js --mangle --compress > $HOME/public_html/numbers.js
+
+Make sure that after performing this operation your game still works. Also make sure that numbers.pretty.js  and numbers.js  can only be read by yourself.
+You should carefully analyse in which situations none of the red pieces or none of the black pieces can move in order to correctly end the play  stage in such situations.
+Ideally your program would move the black pieces in a way that increases the computer's chances of eliminating all red pieces. AI techniques might help you with that.
+Ideally your program would allow the size of the grid to be changed easily (by the maintainer of the program), independently for each dimension.
+JavaScript engines differ from browser to browser. You should make sure that your system works in all commonly used browsers (e.g., Google Chrome, Mozilla Firefox, Microsoft Internet Explorer 11) and on all commonly used platforms (e.g., Linux derivatives and Microsoft Windows).
+Use of images for the pieces and blocks and absence of JavaScript prompts, JavaScript alerts, and HTML input elements improve the quality of the visual design and user experience of the game. Remember that if you use images, then they must be your own or your use must be legal under copyright law. You should also provide a reference for the source or sources of your images in your code, or state that they are your own.
+Your JavaScript program should only depend on your own code.  JavaScript libraries/frameworks, like jQuery, must not be used.
+Your code should follow the  COMP284 Coding Standard (Links to an external site.). This includes pointing out which parts of your code have been developed with the help of on-line sources or textbooks and references for these sources.
+A script that deals satisfactorily with these additional requirements and comments, in addition to providing the basic functionality required, will receive higher marks.

@@ -38,6 +38,7 @@
 .container.show-nav .circle {
   transform: rotate(-70deg);
 }
+
 .circle button {
   cursor: pointer;
   position: absolute;
@@ -57,15 +58,16 @@
 .open {
   left: 60%;
 }
+
 .close {
   top: 60%;
   transform: rotate(90deg);
   transform-origin: top left;
 }
 
-.container.show-nav + nav li{
-    transform: translateX(0);
-    transition-delay: 0.3s;
+.container.show-nav+nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s;
 }
 
 .content img {
@@ -91,41 +93,43 @@
   line-height: 1.5;
 }
 
-nav {
+.main nav {
   position: absolute;
   top: 70vh;
   left: 0;
   z-index: 100;
 }
 
-nav ul {
+.main nav ul {
   list-style-type: none;
   padding-left: 30px;
 }
-nav ul li {
+
+.main nav ul li {
   text-transform: uppercase;
   color: #fff;
   margin: 40px 0;
   transform: translateX(-100%);
   transition: transform 0.4s ease-in;
 }
-nav ul li + li {
+
+.main nav ul li+li {
   margin-left: 15px;
   transform: translateX(-150%);
 }
 
-nav ul li + li + li {
+.main nav ul li+li+li {
   margin-left: 30px;
   transform: translateX(-200%);
 }
 
-nav a {
+.main nav a {
   color: #fafafa;
   text-decoration: none;
   transition: all 0.5s;
 }
 
-nav a:hover {
+.main nav a:hover {
   color: #ff7979;
   font-weight: bold;
 }

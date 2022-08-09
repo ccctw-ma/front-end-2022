@@ -1,7 +1,7 @@
 /*
  * @Author: msc
  * @Date: 2022-07-06 00:12:07
- * @LastEditTime: 2022-07-06 00:16:46
+ * @LastEditTime: 2022-07-29 00:49:46
  * @LastEditors: msc
  * @Description: 
  */
@@ -10,6 +10,9 @@
 /// <reference types="react" />
 /// <reference types="react-dom" />
 /// <reference types="node" />
+
+
+
 declare module '*.svg' {
     const src: string;
     export default src;

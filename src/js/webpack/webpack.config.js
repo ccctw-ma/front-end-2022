@@ -2,11 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { webpack } = require('webpack');
-
+const WorkboxPlugin = require('workbox-webpack-plugin')
 module.exports = {
     entry: {
         app: './src/index.js',
-        // print: './src/print.js'
+        print: './src/print.js'
         // another: './src/another.js'
     },
     devtool: 'inline-source-map',
@@ -45,6 +45,10 @@ module.exports = {
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'common' // 指定公共bundle的名称 webpack4.0 以下可以使用 4.0以上迁移至splitChunks
         // })
+        // new WorkboxPlugin.GenerateSW({
+        //     clientsClaim: true,
+        //     skipWaiting: true
+        // })
     ],
     module: {
         rules: [
@@ -78,6 +82,11 @@ module.exports = {
                 use: [
                     'xml-loader'
                 ]
+            },
+            {
+                test: /\.tsx?&/,
+                use: 'ts-loader',
+                excludes: /node_modules/
             }
         ]
     }

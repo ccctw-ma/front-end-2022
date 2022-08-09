@@ -1,12 +1,10 @@
 /*
  * @Author: msc
- * @Date: 2022-07-04 21:11:21
- * @LastEditTime: 2022-07-06 01:34:20
+ * @Date: 2022-07-29 01:05:39
+ * @LastEditTime: 2022-07-29 01:24:19
  * @LastEditors: msc
  * @Description: 
  */
-
-
 
 export interface MyElectronAPI {
     desktop: boolean;
@@ -36,4 +34,3 @@ declare global {
         myAPI: MyAPI
     }
 }
-

@@ -1,7 +1,7 @@
 /**
  * @Author: msc
  * @Date: 2022-07-21 23:47:40
- * @LastEditTime: 2022-07-26 01:26:38
+ * @LastEditTime: 2022-07-27 23:21:11
  * @LastEditors: msc
  * @Description: 
  */
@@ -36,5 +36,15 @@ if (module.hot) {
     module.hot.accept('./print.js', function () {
         console.log('Accepting the updated printMe module');
         printMe();
+    })
+}
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('SW registered: ', registration);
+        }).catch(error => {
+            console.log('error', error);
+        })
     })
 }
