@@ -4,7 +4,7 @@
 /*
  * @Author: msc
  * @Date: 2022-03-02 20:53:06
- * @LastEditTime: 2022-07-10 21:24:24
+ * @LastEditTime: 2022-08-11 23:52:11
  * @LastEditors: msc
  * @Description: function
  */
@@ -80,6 +80,17 @@ interface UIElement {
 
 
 console.log([1, 2, 3].slice(0, 2));
+
+// 重载
+function reverse(x: number): number;
+function reverse(x: string): string;
+function reverse(x: number | string): number | string | void {
+    if (typeof x === 'number') {
+        return Number(x.toString().split('').reverse().join(''));
+    } else if (typeof x === 'string') {
+        return x.split('').reverse().join('');
+    }
+}
 
 
 
