@@ -1,7 +1,7 @@
 /**
  * @Author: msc
  * @Date: 2022-06-05 21:36:09
- * @LastEditTime: 2022-08-09 22:50:02
+ * @LastEditTime: 2022-08-17 23:08:20
  * @LastEditors: msc
  * @Description: promise learning
  */
@@ -87,5 +87,5 @@ function fetchData() {
     };
 }
 
-const data = fetchData().user.read();
-console.log(data);
+// const data = fetchData().user.read();
+// console.log(data);
