@@ -1,7 +1,7 @@
 /*
  * @Author: msc
  * @Date: 2022-08-18 23:35:03
- * @LastEditTime: 2022-08-19 00:29:22
+ * @LastEditTime: 2022-08-22 23:40:05
  * @LastEditors: msc
  * @Description: 
  */
@@ -93,3 +93,18 @@ const op: DefaultToastOptions = {
         icon: 1
     }
 }
+
+
+const genId = (() => {
+    let count = 0;
+    return () => {
+        return (++count).toString();
+    };
+})();
+
+console.log(genId());
+console.log(genId());
+console.log(genId());
+console.log(genId());
+console.log(genId());
+
