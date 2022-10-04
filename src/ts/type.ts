@@ -77,6 +77,7 @@
         email: string
     }
 
+    type typeOfUser = keyof User
 
     type AAA = {
         name: string
@@ -93,5 +94,28 @@
     }
 
     type R = MyPick<{ a: 1, b: 2, c: 3 }, "a" | "b">;
+
+    type Zip<A extends any[], B extends any[]> =
+        A extends [infer AFirst, ...infer ARest]
+        ? B extends [infer BFirst, ...infer BRest]
+        ? [[AFirst, BFirst], ...Zip<ARest, BRest>]
+        : []
+        : []
+
+
+
+    type exp = Zip<[1, 2], [true, false]>
+
+    type isNever<T> = [T] extends [never] ? true : false
+
+
+
+    type SquareEvent = { kind: "square", x: number, y: number };
+    type CircleEvent = { kind: "circle", radius: number };
+    type Config = SquareEvent | CircleEvent
+    const tupleMix = [1, '2', 3, '4'] as const
+    type tupleMix = {
+         [k in typeof tupleMix[number]]? : k
+    }
 
 })();
